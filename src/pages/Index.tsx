@@ -126,20 +126,23 @@ const Hero = () => {
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
               Hello I'm <br />
-              <span className="text-primary gradient-text">NATTO MUNI CHAKMA</span>
+              <span className="text-primary gradient-text">Natto Muni Chakma</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground font-light max-w-lg">
-              Blue Team Security Analyst & Incident Response Specialist
+              Cybersecurity Analyst | Blue Team | SOC Enthusiast
             </p>
             <p className="text-muted-foreground max-w-md">
-              Defending organizations against cyber threats through proactive monitoring, threat hunting, incident response, and building resilient security architectures.
+              Cybersecurity student specializing in SOC operations, threat detection,
+and vulnerability assessment. Experienced in SIEM monitoring,
+network analysis, and incident response through hands-on labs
+and internship experience.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground min-w-[150px]">
-                Get Protected
+               View Projects
               </Button>
               <Button size="lg" variant="outline" className="border-primary/50 hover:bg-primary/10 min-w-[150px]">
-                View My Work
+             Download Resume
               </Button>
             </div>
           </motion.div>
@@ -150,12 +153,12 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             className="relative"
           >
-            <div className="relative aspect-square md:aspect-[4/5] overflow-hidden rounded-2xl border border-primary/20 box-glow bg-card/50">
-              <img 
-                src={heroImage}
-                alt="Jason Beaudry - Blue Team Security Analyst" 
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-              />
+            <div className="relative w-[320px] md:w-[380px] aspect-[4/5] overflow-hidden rounded-2xl border border-primary/20 box-glow bg-card/50 mx-auto">
+            <img 
+  src={heroImage}
+  alt="Natto Muni Chakma - Cybersecurity Analyst"
+  className="w-full h-full object-cover rounded-xl hover:scale-105 transition-transform duration-500"
+/>
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent pointer-events-none" />
             </div>
             
@@ -249,10 +252,14 @@ const About = () => {
           
           <ScrollReveal delay={0.2} className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold">About Me</h2>
-            <h3 className="text-xl text-primary font-medium">Blue Team Analyst & Incident Responder</h3>
-            <p className="text-muted-foreground">
-              With over 8 years in defensive cybersecurity, I specialize in SOC operations, threat hunting, and incident response. I hold certifications including GCIA, GCIH, and CySA+, and have defended enterprise environments against nation-state and cybercriminal threat actors.
-            </p>
+            <h3 className="text-xl text-primary font-medium">I am a cybersecurity student and SOC analyst intern with hands-on
+experience in threat detection, vulnerability assessment,
+and network security analysis.</h3>
+             <h3 className="text-xl text-primary font-medium"> I have practical experience using tools such as Wireshark,
+Nmap, Nessus, and SIEM platforms to analyze network traffic,
+identify vulnerabilities, and investigate security incidents</h3>
+             <h3 className="text-xl text-primary font-medium"> My goal is to work as a Security Analyst or SOC Analyst,
+helping organizations detect and respond to cyber threats.</h3>
             <StaggerContainer className="grid grid-cols-2 gap-4 pt-4">
               {[
                 { value: "200+", label: "Incidents Handled" },
@@ -272,23 +279,28 @@ const About = () => {
     </section>
   );
 };
-
 const Projects = () => {
   const projects = [
     {
-      title: "Enterprise SOC Buildout",
-      category: "SOC Operations",
-      description: "Designed and deployed a 24/7 SOC for a Fortune 500 company using Splunk, CrowdStrike, and custom SOAR playbooks."
+      title: "TryHackMe Labs",
+      category: "Blue Team Training",
+      description:
+        "Completed hands-on cybersecurity labs covering SOC analysis, threat detection and incident response.",
+      link: "https://tryhackme.com/p/NATTO"
     },
     {
-      title: "Ransomware Incident Response",
-      category: "Incident Response",
-      description: "Led containment and recovery for a critical ransomware attack, restoring operations within 48 hours with zero data loss."
+      title: "Hack The Box Challenges",
+      category: "Penetration Testing Practice",
+      description:
+        "Solved multiple Hack The Box machines and challenges involving enumeration and privilege escalation.",
+      link: "https://app.hackthebox.com/home"
     },
     {
-      title: "Threat Hunting Program",
-      category: "Threat Hunting",
-      description: "Built a proactive threat hunting program using MITRE ATT&CK framework, uncovering 12 previously undetected intrusions."
+      title: "LetsDefend SOC Platform",
+      category: "SOC Analyst Training",
+      description:
+        "Practiced real-world SOC scenarios including phishing investigation and SIEM log analysis.",
+      link: "https://app.letsdefend.io/"
     }
   ];
 
@@ -298,31 +310,60 @@ const Projects = () => {
         <ScrollReveal className="flex justify-between items-end mb-12">
           <div className="space-y-2">
             <h2 className="text-3xl md:text-4xl font-bold">Case Studies</h2>
-            <p className="text-muted-foreground">Real-world defensive security engagements and outcomes.</p>
+            <p className="text-muted-foreground">
+              Real-world defensive security engagements and outcomes.
+            </p>
           </div>
-          <Button variant="outline" className="hidden md:flex">View All Cases</Button>
+
+          <Button variant="outline" className="hidden md:flex">
+            View All Cases
+          </Button>
         </ScrollReveal>
 
         <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, i) => (
-            <motion.div key={i} variants={staggerItem} className="group rounded-xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300">
+            <motion.div
+              key={i}
+              variants={staggerItem}
+              className="group rounded-xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300"
+            >
               <div className="aspect-video bg-muted relative overflow-hidden">
+
                 <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/5 transition-colors" />
+
                 <div className="absolute inset-0 flex items-center justify-center">
                   <ShieldCheck className="w-12 h-12 text-primary/30 group-hover:text-primary/50 transition-colors" />
                 </div>
+
+                {/* CLICKABLE BUTTON */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Button variant="secondary" size="sm" className="gap-2">
-                    <ExternalLink className="w-4 h-4" /> View Case Study
-                  </Button>
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button variant="secondary" size="sm" className="gap-2">
+                      <ExternalLink className="w-4 h-4" />
+                      View Profile
+                    </Button>
+                  </a>
                 </div>
+
               </div>
+
               <div className="p-6 space-y-4">
                 <div>
-                  <h3 className="text-xl font-bold hover:text-primary transition-colors cursor-pointer">{project.title}</h3>
-                  <p className="text-sm text-primary mt-1">{project.category}</p>
+                  <h3 className="text-xl font-bold hover:text-primary transition-colors cursor-pointer">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-primary mt-1">
+                    {project.category}
+                  </p>
                 </div>
-                <p className="text-muted-foreground text-sm">{project.description}</p>
+
+                <p className="text-muted-foreground text-sm">
+                  {project.description}
+                </p>
               </div>
             </motion.div>
           ))}
