@@ -339,7 +339,7 @@ const projects = [
                  <img
   src={project.logo}
   alt={project.title}
-  className="w-16 h-16 object-contain opacity-70 group-hover:opacity-100 transition"/>
+  className="w-20 h-20 object-contain opacity-80 group-hover:opacity-100 transition"/>
                 </div>
 
                 {/* CLICKABLE BUTTON */}
