@@ -255,11 +255,12 @@ const About = () => {
             <h3 className="text-xl text-primary font-medium">I am a cybersecurity student and SOC analyst intern with hands-on
 experience in threat detection, vulnerability assessment,
 and network security analysis.</h3>
-            <p className="text-muted-foreground">
-             I have practical experience using tools such as Wireshark,
+             <h3 className="text-xl text-primary font-medium"> I have practical experience using tools such as Wireshark,
 Nmap, Nessus, and SIEM platforms to analyze network traffic,
-identify vulnerabilities, and investigate security incidents.
-            </p>
+identify vulnerabilities, and investigate security incidents</h3>
+             <h3 className="text-xl text-primary font-medium"> I have practical experience using tools such as Wireshark,
+Nmap, Nessus, and SIEM platforms to analyze network traffic,
+identify vulnerabilities, and investigate security incidents.</h3>
             <p className="text-muted-foreground">
             My goal is to work as a Security Analyst or SOC Analyst,
 helping organizations detect and respond to cyber threats.
