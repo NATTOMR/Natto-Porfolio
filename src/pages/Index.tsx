@@ -153,11 +153,11 @@ and internship experience.
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             className="relative"
           >
-            <div className="relative aspect-square md:aspect-[4/5] overflow-hidden rounded-2xl border border-primary/20 box-glow bg-card/50">
-              <img 
-                src={heroImage}
-                alt="Jason Beaudry - Blue Team Security Analyst" 
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+            <div className="relative w-[360px] md:w-[420px] aspect-[4/5] overflow-hidden rounded-2xl border border-primary/20 box-glow bg-card/50 mx-auto">
+             <img 
+  src={heroImage}
+  alt="Natto Muni Chakma - Cybersecurity Analyst"
+  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent pointer-events-none" />
             </div>
