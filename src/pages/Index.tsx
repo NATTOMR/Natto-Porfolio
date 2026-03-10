@@ -335,13 +335,13 @@ const projects = [
 
                 <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/5 transition-colors" />
 
-                <div className="absolute inset-0 flex items-center justify-center">
-                 <img
-  src={project.logo}
-  alt={project.title}
-  className="w-20 h-20 object-contain opacity-80 group-hover:opacity-100 transition"/>
-                </div>
-
+               <div className="absolute inset-0 flex items-center justify-center">
+  <img
+    src={project.logo}
+    alt={project.title}
+    className="w-28 h-28 object-contain opacity-90 group-hover:scale-110 transition"
+  />
+</div>
                 {/* CLICKABLE BUTTON */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <a
