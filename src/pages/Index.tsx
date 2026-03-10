@@ -280,24 +280,29 @@ helping organizations detect and respond to cyber threats.</h3>
   );
 };
 
-const Projects = () => {
-  const projects = [
-    {
-      title: "TryHackMe Labs",
-      category: "Blue Team Training",
-      description: "Completed hands-on cybersecurity labs on TryHackMe covering SOC analysis, network security, incident response, and threat detection exercises."
-    },
-    {
-      title: "Hack The Box Challenges",
-      category: "Penetration Testing Practice",
-      description: "Solved multiple Hack The Box machines and challenges involving enumeration, privilege escalation, web exploitation, and system security analysis."
-    },
-    {
-      title: "LetsDefend SOC Platform",
-      category: "SOC Analyst Training",
-      description: "Practiced real-world SOC scenarios including phishing investigation, malware analysis, SIEM log monitoring, and incident response simulations."
-    }
-  ];
+const projects = [
+  {
+    title: "TryHackMe Labs",
+    category: "Blue Team Training",
+    description:
+      "Completed hands-on cybersecurity labs including SOC analysis, incident response, network security, and threat detection exercises.",
+    link: "https://tryhackme.com/p/NATTO"
+  },
+  {
+    title: "Hack The Box Challenges",
+    category: "Penetration Testing Practice",
+    description:
+      "Solved multiple Hack The Box machines and challenges involving enumeration, privilege escalation, and web exploitation.",
+    link: "https://app.hackthebox.com/home"
+  },
+  {
+    title: "LetsDefend SOC Platform",
+    category: "SOC Analyst Training",
+    description:
+      "Practiced real-world SOC scenarios including phishing investigation, malware analysis, SIEM log monitoring, and incident response simulations.",
+    link: "https://app.letsdefend.io/"
+  }
+];
 
   return (
     <section id="projects" className="py-24 bg-secondary/20">
