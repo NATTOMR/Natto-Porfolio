@@ -126,7 +126,7 @@ const Hero = () => {
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
               Hello I'm <br />
-              <span className="text-primary gradient-text">Jason Beaudry</span>
+              <span className="text-primary gradient-text">NATTO MUNI CHAKMA</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground font-light max-w-lg">
               Blue Team Security Analyst & Incident Response Specialist
