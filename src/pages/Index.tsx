@@ -305,16 +305,13 @@ const projects = [
 ];
 
   return (
-    <section id="projects" className="py-24 bg-secondary/20">
-      <div className="container mx-auto px-4 md:px-6">
-        <ScrollReveal className="flex justify-between items-end mb-12">
-          <div className="space-y-2">
-            <h2 className="text-3xl md:text-4xl font-bold">Case Studies</h2>
-            <p className="text-muted-foreground">Real-world defensive security engagements and outcomes.</p>
-          </div>
-          <Button variant="outline" className="hidden md:flex">View All Cases</Button>
-        </ScrollReveal>
-
+    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+  <a href={project.link} target="_blank" rel="noopener noreferrer">
+    <Button variant="secondary" size="sm" className="gap-2">
+      <ExternalLink className="w-4 h-4" /> View Profile
+    </Button>
+  </a>
+</div>
         <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, i) => (
             <motion.div key={i} variants={staggerItem} className="group rounded-xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300">
