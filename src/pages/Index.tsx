@@ -126,20 +126,23 @@ const Hero = () => {
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
               Hello I'm <br />
-              <span className="text-primary gradient-text">Jason Beaudry</span>
+              <span className="text-primary gradient-text">Natto Muni Chakma</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground font-light max-w-lg">
-              Blue Team Security Analyst & Incident Response Specialist
+              Cybersecurity Analyst | Blue Team | SOC Enthusiast
             </p>
             <p className="text-muted-foreground max-w-md">
-              Defending organizations against cyber threats through proactive monitoring, threat hunting, incident response, and building resilient security architectures.
+              Cybersecurity student specializing in SOC operations, threat detection,
+and vulnerability assessment. Experienced in SIEM monitoring,
+network analysis, and incident response through hands-on labs
+and internship experience.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground min-w-[150px]">
-                Get Protected
+               View Projects
               </Button>
               <Button size="lg" variant="outline" className="border-primary/50 hover:bg-primary/10 min-w-[150px]">
-                View My Work
+             Download Resume
               </Button>
             </div>
           </motion.div>
@@ -249,9 +252,17 @@ const About = () => {
           
           <ScrollReveal delay={0.2} className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold">About Me</h2>
-            <h3 className="text-xl text-primary font-medium">Blue Team Analyst & Incident Responder</h3>
+            <h3 className="text-xl text-primary font-medium">I am a cybersecurity student and SOC analyst intern with hands-on
+experience in threat detection, vulnerability assessment,
+and network security analysis.</h3>
             <p className="text-muted-foreground">
-              With over 8 years in defensive cybersecurity, I specialize in SOC operations, threat hunting, and incident response. I hold certifications including GCIA, GCIH, and CySA+, and have defended enterprise environments against nation-state and cybercriminal threat actors.
+             I have practical experience using tools such as Wireshark,
+Nmap, Nessus, and SIEM platforms to analyze network traffic,
+identify vulnerabilities, and investigate security incidents.
+            </p>
+            <p className="text-muted-foreground">
+            My goal is to work as a Security Analyst or SOC Analyst,
+helping organizations detect and respond to cyber threats.
             </p>
             <StaggerContainer className="grid grid-cols-2 gap-4 pt-4">
               {[
