@@ -305,8 +305,13 @@ const projects = [
 ];
 
   return (
-    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-  <a href={project.link} target="_blank" rel="noopener noreferrer">
+  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-auto">
+  <a
+    href={project.link}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="z-10"
+  >
     <Button variant="secondary" size="sm" className="gap-2">
       <ExternalLink className="w-4 h-4" /> View Profile
     </Button>
