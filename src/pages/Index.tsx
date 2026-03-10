@@ -1,3 +1,6 @@
+import thmLogo from "@/assets/tryhackme.png";
+import htbLogo from "@/assets/htb.png";
+import ldLogo from "@/assets/letsdefence.png";
 import { Button } from "@/components/ui/button";
 import { Shield, ExternalLink, Mail, Github, Linkedin, Terminal, Menu, X, ShieldCheck, Eye, Database, Activity, Monitor, FileSearch, AlertTriangle, Search } from "lucide-react";
 import { useState, useEffect, ReactNode } from "react";
@@ -279,31 +282,32 @@ helping organizations detect and respond to cyber threats.</h3>
     </section>
   );
 };
-const Projects = () => {
-  const projects = [
-    {
-      title: "TryHackMe Labs",
-      category: "Blue Team Training",
-      description:
-        "Completed hands-on cybersecurity labs covering SOC analysis, threat detection and incident response.",
-      link: "https://tryhackme.com/p/NATTO"
-    },
-    {
-      title: "Hack The Box Challenges",
-      category: "Penetration Testing Practice",
-      description:
-        "Solved multiple Hack The Box machines and challenges involving enumeration and privilege escalation.",
-      link: "https://app.hackthebox.com/home"
-    },
-    {
-      title: "LetsDefend SOC Platform",
-      category: "SOC Analyst Training",
-      description:
-        "Practiced real-world SOC scenarios including phishing investigation and SIEM log analysis.",
-      link: "https://app.letsdefend.io/"
-    }
-  ];
-
+const projects = [
+  {
+    title: "TryHackMe Labs",
+    category: "Blue Team Training",
+    description:
+      "Completed hands-on cybersecurity labs covering SOC analysis, threat detection and incident response.",
+    link: "https://tryhackme.com/p/NATTO",
+    logo: thmLogo
+  },
+  {
+    title: "Hack The Box Challenges",
+    category: "Penetration Testing Practice",
+    description:
+      "Solved multiple Hack The Box machines and challenges involving enumeration and privilege escalation.",
+    link: "https://app.hackthebox.com/home",
+    logo: htbLogo
+  },
+  {
+    title: "LetsDefend SOC Platform",
+    category: "SOC Analyst Training",
+    description:
+      "Practiced real-world SOC scenarios including phishing investigation and SIEM log analysis.",
+    link: "https://app.letsdefend.io/",
+    logo: ldLogo
+  }
+];
   return (
     <section id="projects" className="py-24 bg-secondary/20">
       <div className="container mx-auto px-4 md:px-6">
@@ -332,7 +336,10 @@ const Projects = () => {
                 <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/5 transition-colors" />
 
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <ShieldCheck className="w-12 h-12 text-primary/30 group-hover:text-primary/50 transition-colors" />
+                 <img
+  src={project.logo}
+  alt={project.title}
+  className="w-16 h-16 object-contain opacity-70 group-hover:opacity-100 transition"/>
                 </div>
 
                 {/* CLICKABLE BUTTON */}
