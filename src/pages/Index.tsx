@@ -279,63 +279,91 @@ helping organizations detect and respond to cyber threats.</h3>
     </section>
   );
 };
+const Projects = () => {
+  const projects = [
+    {
+      title: "TryHackMe Labs",
+      category: "Blue Team Training",
+      description:
+        "Completed hands-on cybersecurity labs covering SOC analysis, threat detection and incident response.",
+      link: "https://tryhackme.com/p/NATTO"
+    },
+    {
+      title: "Hack The Box Challenges",
+      category: "Penetration Testing Practice",
+      description:
+        "Solved multiple Hack The Box machines and challenges involving enumeration and privilege escalation.",
+      link: "https://app.hackthebox.com/home"
+    },
+    {
+      title: "LetsDefend SOC Platform",
+      category: "SOC Analyst Training",
+      description:
+        "Practiced real-world SOC scenarios including phishing investigation and SIEM log analysis.",
+      link: "https://app.letsdefend.io/"
+    }
+  ];
 
-const projects = [
-  {
-    title: "TryHackMe Labs",
-    category: "Blue Team Training",
-    description:
-      "Completed hands-on cybersecurity labs covering SOC analysis, threat detection and incident response.",
-    link: "https://tryhackme.com/p/NATTO"
-  },
-  {
-    title: "Hack The Box Challenges",
-    category: "Penetration Testing Practice",
-    description:
-      "Solved multiple Hack The Box machines and challenges involving enumeration and privilege escalation.",
-    link: "https://app.hackthebox.com/home"
-  },
-  {
-    title: "LetsDefend SOC Platform",
-    category: "SOC Analyst Training",
-    description:
-      "Practiced real-world SOC scenarios including phishing investigation and SIEM log analysis.",
-    link: "https://app.letsdefend.io/"
-  }
-];
   return (
-  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-auto">
-  <a
-    href={project.link}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="z-10"
-  >
-    <Button variant="secondary" size="sm" className="gap-2">
-      <ExternalLink className="w-4 h-4" /> View Profile
-    </Button>
-  </a>
-</div>
+    <section id="projects" className="py-24 bg-secondary/20">
+      <div className="container mx-auto px-4 md:px-6">
+        <ScrollReveal className="flex justify-between items-end mb-12">
+          <div className="space-y-2">
+            <h2 className="text-3xl md:text-4xl font-bold">Case Studies</h2>
+            <p className="text-muted-foreground">
+              Real-world defensive security engagements and outcomes.
+            </p>
+          </div>
+
+          <Button variant="outline" className="hidden md:flex">
+            View All Cases
+          </Button>
+        </ScrollReveal>
+
         <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, i) => (
-            <motion.div key={i} variants={staggerItem} className="group rounded-xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300">
+            <motion.div
+              key={i}
+              variants={staggerItem}
+              className="group rounded-xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300"
+            >
               <div className="aspect-video bg-muted relative overflow-hidden">
+
                 <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/5 transition-colors" />
+
                 <div className="absolute inset-0 flex items-center justify-center">
                   <ShieldCheck className="w-12 h-12 text-primary/30 group-hover:text-primary/50 transition-colors" />
                 </div>
+
+                {/* CLICKABLE BUTTON */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Button variant="secondary" size="sm" className="gap-2">
-                    <ExternalLink className="w-4 h-4" /> View Case Study
-                  </Button>
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button variant="secondary" size="sm" className="gap-2">
+                      <ExternalLink className="w-4 h-4" />
+                      View Profile
+                    </Button>
+                  </a>
                 </div>
+
               </div>
+
               <div className="p-6 space-y-4">
                 <div>
-                  <h3 className="text-xl font-bold hover:text-primary transition-colors cursor-pointer">{project.title}</h3>
-                  <p className="text-sm text-primary mt-1">{project.category}</p>
+                  <h3 className="text-xl font-bold hover:text-primary transition-colors cursor-pointer">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-primary mt-1">
+                    {project.category}
+                  </p>
                 </div>
-                <p className="text-muted-foreground text-sm">{project.description}</p>
+
+                <p className="text-muted-foreground text-sm">
+                  {project.description}
+                </p>
               </div>
             </motion.div>
           ))}
