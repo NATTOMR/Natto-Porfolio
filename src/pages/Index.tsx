@@ -283,19 +283,19 @@ helping organizations detect and respond to cyber threats.</h3>
 const Projects = () => {
   const projects = [
     {
-      title: "Enterprise SOC Buildout",
-      category: "SOC Operations",
-      description: "Designed and deployed a 24/7 SOC for a Fortune 500 company using Splunk, CrowdStrike, and custom SOAR playbooks."
+      title: "TryHackMe Labs",
+      category: "Blue Team Training",
+      description: "Completed hands-on cybersecurity labs on TryHackMe covering SOC analysis, network security, incident response, and threat detection exercises."
     },
     {
-      title: "Ransomware Incident Response",
-      category: "Incident Response",
-      description: "Led containment and recovery for a critical ransomware attack, restoring operations within 48 hours with zero data loss."
+      title: "Hack The Box Challenges",
+      category: "Penetration Testing Practice",
+      description: "Solved multiple Hack The Box machines and challenges involving enumeration, privilege escalation, web exploitation, and system security analysis."
     },
     {
-      title: "Threat Hunting Program",
-      category: "Threat Hunting",
-      description: "Built a proactive threat hunting program using MITRE ATT&CK framework, uncovering 12 previously undetected intrusions."
+      title: "LetsDefend SOC Platform",
+      category: "SOC Analyst Training",
+      description: "Practiced real-world SOC scenarios including phishing investigation, malware analysis, SIEM log monitoring, and incident response simulations."
     }
   ];
 
