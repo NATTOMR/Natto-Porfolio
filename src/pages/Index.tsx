@@ -285,25 +285,24 @@ const projects = [
     title: "TryHackMe Labs",
     category: "Blue Team Training",
     description:
-      "Completed hands-on cybersecurity labs including SOC analysis, incident response, network security, and threat detection exercises.",
+      "Completed hands-on cybersecurity labs covering SOC analysis, threat detection and incident response.",
     link: "https://tryhackme.com/p/NATTO"
   },
   {
     title: "Hack The Box Challenges",
     category: "Penetration Testing Practice",
     description:
-      "Solved multiple Hack The Box machines and challenges involving enumeration, privilege escalation, and web exploitation.",
+      "Solved multiple Hack The Box machines and challenges involving enumeration and privilege escalation.",
     link: "https://app.hackthebox.com/home"
   },
   {
     title: "LetsDefend SOC Platform",
     category: "SOC Analyst Training",
     description:
-      "Practiced real-world SOC scenarios including phishing investigation, malware analysis, SIEM log monitoring, and incident response simulations.",
+      "Practiced real-world SOC scenarios including phishing investigation and SIEM log analysis.",
     link: "https://app.letsdefend.io/"
   }
 ];
-
   return (
   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-auto">
   <a
