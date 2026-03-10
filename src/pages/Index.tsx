@@ -258,13 +258,8 @@ and network security analysis.</h3>
              <h3 className="text-xl text-primary font-medium"> I have practical experience using tools such as Wireshark,
 Nmap, Nessus, and SIEM platforms to analyze network traffic,
 identify vulnerabilities, and investigate security incidents</h3>
-             <h3 className="text-xl text-primary font-medium"> I have practical experience using tools such as Wireshark,
-Nmap, Nessus, and SIEM platforms to analyze network traffic,
-identify vulnerabilities, and investigate security incidents.</h3>
-            <p className="text-muted-foreground">
-            My goal is to work as a Security Analyst or SOC Analyst,
-helping organizations detect and respond to cyber threats.
-            </p>
+             <h3 className="text-xl text-primary font-medium"> My goal is to work as a Security Analyst or SOC Analyst,
+helping organizations detect and respond to cyber threats.</h3>
             <StaggerContainer className="grid grid-cols-2 gap-4 pt-4">
               {[
                 { value: "200+", label: "Incidents Handled" },
