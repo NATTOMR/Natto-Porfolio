@@ -423,7 +423,7 @@ const Contact = () => {
 
             {/* LinkedIn */}
             <a 
-              href="https://shorturl.ad/KMOWn" 
+              href="https://www.linkedin.com/in/natto-muni-chakma-4b19b4259/" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="flex flex-col items-center justify-center p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:scale-105 group box-glow"
@@ -432,7 +432,7 @@ const Contact = () => {
                 <Linkedin className="w-6 h-6 text-primary" />
               </div>
               <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-1">LinkedIn</span>
-              <span className="text-sm font-medium text-foreground truncate max-w-full">linkedin.com/in/natto</span>
+              <span className="text-sm font-medium text-foreground truncate max-w-full">natto-muni-chakma-4b19b4259</span>
             </a>
 
             {/* GitHub */}
