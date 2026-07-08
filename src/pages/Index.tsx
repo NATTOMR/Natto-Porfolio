@@ -80,9 +80,6 @@ const Nav = () => {
                 {link.name}
               </a>
             ))}
-            <Button variant="default" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              Hire Me
-            </Button>
           </div>
 
           <button className="md:hidden p-2" onClick={() => setIsOpen(!isOpen)}>
