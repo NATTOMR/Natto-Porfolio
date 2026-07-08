@@ -2,7 +2,7 @@ import thmLogo from "@/assets/tryhackme.png";
 import htbLogo from "@/assets/htb.png";
 import ldLogo from "@/assets/letsdefence.png";
 import { Button } from "@/components/ui/button";
-import { Shield, ExternalLink, Mail, Github, Linkedin, Terminal, Menu, X, ShieldCheck, Eye, Database, Activity, Monitor, FileSearch, AlertTriangle, Search } from "lucide-react";
+import { Shield, ExternalLink, Mail, Github, Linkedin, Terminal, Menu, X, ShieldCheck, Eye, Database, Activity, Monitor, FileSearch, AlertTriangle, Search, MessageSquare } from "lucide-react";
 import { useState, useEffect, ReactNode } from "react";
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-image.jpg";
@@ -383,74 +383,74 @@ const Projects = () => {
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-24 relative overflow-hidden">
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-24">
-          <ScrollReveal className="space-y-8">
-            <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold">Strengthen Your Defenses</h2>
-              <p className="text-muted-foreground">
-                Need a Blue Team specialist? Let's discuss how I can help protect your organization from evolving cyber threats.
-              </p>
-            </div>
+    <section id="contact" className="py-24 relative overflow-hidden bg-secondary/10">
+      <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-4xl text-center space-y-12">
+        <ScrollReveal className="space-y-4">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Strengthen Your Defenses</h2>
+          <p className="text-muted-foreground max-w-xl mx-auto">
+            Need a Blue Team specialist? Let's discuss how I can help protect your organization from evolving cyber threats.
+          </p>
+        </ScrollReveal>
 
-            <div className="space-y-6">
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Mail className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Email Me</p>
-                  <a href="mailto:nattochakma29@gmail.com" className="font-medium hover:text-primary transition-colors">
-                    nattochakma29@gmail.com
-                  </a>
-                </div>
+        <ScrollReveal delay={0.2}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            
+            {/* Email */}
+            <a 
+              href="mailto:nattochakma29@gmail.com" 
+              className="flex flex-col items-center justify-center p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:scale-105 group box-glow"
+            >
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                <Mail className="w-6 h-6 text-primary" />
               </div>
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Linkedin className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">LinkedIn</p>
-                  <a href="https://shorturl.ad/KMOWn" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-primary transition-colors">
-                    linkedin.com/in/natto-muni-chakma
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Github className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">GitHub</p>
-                  <a href="https://github.com/NATTOMR" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-primary transition-colors">
-                    github.com/NATTOMR
-                  </a>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
+              <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-1">Email</span>
+              <span className="text-sm font-medium text-foreground truncate max-w-full">nattochakma29@gmail.com</span>
+            </a>
 
-          <ScrollReveal delay={0.2}>
-            <form className="space-y-6 p-8 rounded-2xl bg-card border border-border box-glow">
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Name</label>
-                <input className="w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Your Name" />
+            {/* WhatsApp */}
+            <a 
+              href="https://wa.me/919121691958" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex flex-col items-center justify-center p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:scale-105 group box-glow"
+            >
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                <MessageSquare className="w-6 h-6 text-primary" />
               </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Email</label>
-                <input type="email" className="w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="your@email.com" />
+              <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-1">WhatsApp</span>
+              <span className="text-sm font-medium text-foreground truncate max-w-full">+91 9121691958</span>
+            </a>
+
+            {/* LinkedIn */}
+            <a 
+              href="https://shorturl.ad/KMOWn" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex flex-col items-center justify-center p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:scale-105 group box-glow"
+            >
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                <Linkedin className="w-6 h-6 text-primary" />
               </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Message</label>
-                <textarea className="w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all min-h-[120px]" placeholder="Describe your security needs..." />
+              <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-1">LinkedIn</span>
+              <span className="text-sm font-medium text-foreground truncate max-w-full">linkedin.com/in/natto</span>
+            </a>
+
+            {/* GitHub */}
+            <a 
+              href="https://github.com/NATTOMR" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex flex-col items-center justify-center p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:scale-105 group box-glow"
+            >
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                <Github className="w-6 h-6 text-primary" />
               </div>
-              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-12 text-lg">
-                Send Message
-              </Button>
-            </form>
-          </ScrollReveal>
-        </div>
+              <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-1">GitHub</span>
+              <span className="text-sm font-medium text-foreground truncate max-w-full">github.com/NATTOMR</span>
+            </a>
+
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
