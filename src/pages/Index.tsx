@@ -401,7 +401,9 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Email Me</p>
-                  <p className="font-medium">contact@jasonbeaudry.sec</p>
+                  <a href="mailto:nattochakma29@gmail.com" className="font-medium hover:text-primary transition-colors">
+                    nattochakma29@gmail.com
+                  </a>
                 </div>
               </div>
               <div className="flex items-center space-x-4">
@@ -410,7 +412,9 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">LinkedIn</p>
-                  <p className="font-medium">linkedin.com/in/jasonbeaudry</p>
+                  <a href="https://shorturl.ad/KMOWn" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-primary transition-colors">
+                    linkedin.com/in/natto-muni-chakma
+                  </a>
                 </div>
               </div>
               <div className="flex items-center space-x-4">
@@ -419,7 +423,9 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">GitHub</p>
-                  <p className="font-medium">github.com/jasonbeaudry</p>
+                  <a href="https://github.com/NATTOMR" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-primary transition-colors">
+                    github.com/NATTOMR
+                  </a>
                 </div>
               </div>
             </div>
@@ -427,26 +433,20 @@ const Contact = () => {
 
           <ScrollReveal delay={0.2}>
             <form className="space-y-6 p-8 rounded-2xl bg-card border border-border box-glow">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">First Name</label>
-                  <input className="w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="John" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Last Name</label>
-                  <input className="w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Doe" />
-                </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Name</label>
+                <input className="w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Your Name" />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium">Email</label>
-                <input type="email" className="w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="john@example.com" />
+                <input type="email" className="w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="your@email.com" />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium">Message</label>
                 <textarea className="w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all min-h-[120px]" placeholder="Describe your security needs..." />
               </div>
               <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-12 text-lg">
-                Request Consultation
+                Send Message
               </Button>
             </form>
           </ScrollReveal>
