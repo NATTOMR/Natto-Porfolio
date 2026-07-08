@@ -2,7 +2,7 @@ import thmLogo from "@/assets/tryhackme.png";
 import htbLogo from "@/assets/htb.png";
 import ldLogo from "@/assets/letsdefence.png";
 import { Button } from "@/components/ui/button";
-import { Shield, ExternalLink, Mail, Github, Linkedin, Terminal, Menu, X, ShieldCheck, Eye, Database, Activity, Monitor, FileSearch, AlertTriangle, Search, MessageSquare } from "lucide-react";
+import { Shield, ExternalLink, Mail, Github, Linkedin, Terminal, Menu, X, ShieldCheck, Eye, Database, Activity, Monitor, FileSearch, AlertTriangle, Search, MessageSquare, Cpu, Server } from "lucide-react";
 import { useState, useEffect, ReactNode } from "react";
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-image.jpg";
@@ -284,39 +284,79 @@ helping organizations detect and respond to cyber threats.</h3>
 };
 const Projects = () => {
   const projects = [
-  {
-    title: "TryHackMe Labs",
-    category: "Blue Team Training",
-    description:
-      "Completed hands-on cybersecurity labs covering SOC analysis, threat detection and incident response.",
-    link: "https://tryhackme.com/p/NATTO",
-    logo: thmLogo
-  },
-  {
-    title: "Hack The Box Challenges",
-    category: "Penetration Testing Practice",
-    description:
-      "Solved multiple Hack The Box machines and challenges involving enumeration and privilege escalation.",
-    link: "https://app.hackthebox.com/home",
-    logo: htbLogo
-  },
-  {
-    title: "LetsDefend SOC Platform",
-    category: "SOC Analyst Training",
-    description:
-      "Practiced real-world SOC scenarios including phishing investigation and SIEM log analysis.",
-    link: "https://app.letsdefend.io/",
-    logo: ldLogo
-  }
-];
+    {
+      title: "Android Malware Detector",
+      category: "Machine Learning & Reverse Engineering",
+      description: "A hybrid static and dynamic Android malware analysis platform using machine learning classifiers (Random Forest & XGBoost) with a Next.js frontend.",
+      link: "https://github.com/NATTOMR/Android-Malware-Detector--My-Final-Year-Project-2026-",
+      icon: <Cpu className="w-8 h-8" />
+    },
+    {
+      title: "Wazuh SOC Home Lab",
+      category: "SIEM & Incident Response",
+      description: "A Wazuh-based Security Operations Center Home Lab for attack detection and log analysis using Ubuntu Server, Windows 11, Kali Linux, and Sysmon.",
+      link: "https://github.com/NATTOMR/Design-and-Implementation-of-a-Wazuh-Based-SOC-Home-Lab-for-Attack-Detection-and-Log-Analysis",
+      icon: <Server className="w-8 h-8" />
+    },
+    {
+      title: "AD & EDR Home Lab",
+      category: "Enterprise Security Hardening",
+      description: "Enterprise-grade Active Directory domain environment integrated with EDR solutions for advanced threat monitoring and logging.",
+      link: "https://github.com/NATTOMR/Enterprise-Grade-Home-Lab-Active-Directory-EDR-",
+      icon: <Database className="w-8 h-8" />
+    },
+    {
+      title: "Intelligent Encrypted IDS",
+      category: "Network Intrusion Detection",
+      description: "Machine learning intrusion detection system classifying and detecting malicious patterns in encrypted network traffic.",
+      link: "https://github.com/NATTOMR/Intelligent-Intrusion-Detection-System-for-Encrypted-Network-Traffic",
+      icon: <Shield className="w-8 h-8" />
+    },
+    {
+      title: "AI SOC Automation",
+      category: "Security Automation",
+      description: "Automation tools for SOC using AI models to triage alerts, correlate threat logs, and accelerate response playbooks.",
+      link: "https://github.com/NATTOMR/AI-SOC-Automation",
+      icon: <Terminal className="w-8 h-8" />
+    },
+    {
+      title: "AI Vulnerability Scanner",
+      category: "Vulnerability Assessment",
+      description: "Vulnerability scanner integrated with AI models to perform security assessments, prioritize risks, and suggest fixes.",
+      link: "https://github.com/NATTOMR/AI-Assisted-Vulnerability-Scanner",
+      icon: <Search className="w-8 h-8" />
+    },
+    {
+      title: "TryHackMe Labs",
+      category: "Blue Team Training",
+      description: "Completed hands-on cybersecurity labs covering SOC analysis, threat detection and incident response.",
+      link: "https://tryhackme.com/p/NATTO",
+      logo: thmLogo
+    },
+    {
+      title: "Hack The Box Challenges",
+      category: "Penetration Testing Practice",
+      description: "Solved multiple Hack The Box machines and challenges involving enumeration and privilege escalation.",
+      link: "https://app.hackthebox.com/home",
+      logo: htbLogo
+    },
+    {
+      title: "LetsDefend SOC Platform",
+      category: "SOC Analyst Training",
+      description: "Practiced real-world SOC scenarios including phishing investigation and SIEM log analysis.",
+      link: "https://app.letsdefend.io/",
+      logo: ldLogo
+    }
+  ];
+
   return (
     <section id="projects" className="py-24 bg-secondary/20">
       <div className="container mx-auto px-4 md:px-6">
         <ScrollReveal className="flex justify-between items-end mb-12">
           <div className="space-y-2">
-            <h2 className="text-3xl md:text-4xl font-bold">Case Studies</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">Case Studies & Projects</h2>
             <p className="text-muted-foreground">
-              Real-world defensive security engagements and outcomes.
+              Real-world defensive security engagements, tools, and training profiles.
             </p>
           </div>
 
@@ -330,19 +370,25 @@ const Projects = () => {
             <motion.div
               key={i}
               variants={staggerItem}
-              className="group rounded-xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300"
+              className="group rounded-xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300 flex flex-col h-full"
             >
-              <div className="aspect-video bg-muted relative overflow-hidden">
-
+              <div className="aspect-video bg-muted relative overflow-hidden shrink-0">
                 <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/5 transition-colors" />
 
-               <div className="absolute inset-0 flex items-center justify-center">
-  <img
-    src={project.logo}
-    alt={project.title}
-    className="w-28 h-28 object-contain opacity-90 group-hover:scale-110 transition"
-  />
-</div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  {project.logo ? (
+                    <img
+                      src={project.logo}
+                      alt={project.title}
+                      className="w-28 h-28 object-contain opacity-90 group-hover:scale-110 transition"
+                    />
+                  ) : (
+                    <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition duration-300">
+                      {project.icon}
+                    </div>
+                  )}
+                </div>
+
                 {/* CLICKABLE BUTTON */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <a
@@ -352,14 +398,13 @@ const Projects = () => {
                   >
                     <Button variant="secondary" size="sm" className="gap-2">
                       <ExternalLink className="w-4 h-4" />
-                      View Profile
+                      {project.logo ? "View Profile" : "View Code"}
                     </Button>
                   </a>
                 </div>
-
               </div>
 
-              <div className="p-6 space-y-4">
+              <div className="p-6 space-y-4 flex flex-col flex-grow">
                 <div>
                   <h3 className="text-xl font-bold hover:text-primary transition-colors cursor-pointer">
                     {project.title}
@@ -369,7 +414,7 @@ const Projects = () => {
                   </p>
                 </div>
 
-                <p className="text-muted-foreground text-sm">
+                <p className="text-muted-foreground text-sm flex-grow">
                   {project.description}
                 </p>
               </div>
