@@ -506,7 +506,7 @@ const Certifications = () => {
       abbr: "Google Cybersecurity",
       org: "Google / Coursera",
       year: "2024",
-      image: "/Natto-Porfolio/Certificate/google-cybersecurity-certificate.png",
+      image: "/Natto-Porfolio/Certificate/google-cybersecurity-certificate.jpg",
       pdf: "/Natto-Porfolio/Certificate/google-cybersecurity-certificate.pdf",
       type: "cert",
       description: "Professional certification covering foundations of cybersecurity, networks, Linux, SQL, Python, and SIEM tools."
@@ -516,7 +516,7 @@ const Certifications = () => {
       abbr: "Elevats Labs",
       org: "Elevate Labs",
       year: "2024",
-      image: "/Natto-Porfolio/Certificate/elevate-labs-certificate.png",
+      image: "/Natto-Porfolio/Certificate/elevate-labs-certificate.jpg",
       pdf: "/Natto-Porfolio/Certificate/elevate-labs-certificate.pdf",
       type: "cert",
       description: "Hands-on certificate in web security, phishing simulation, firewall configuration, SIEM monitoring, and incident response."
@@ -526,7 +526,7 @@ const Certifications = () => {
       abbr: "Launched Cyber",
       org: "Launched",
       year: "2024",
-      image: "/Natto-Porfolio/Certificate/launched-cyber-certificate.png",
+      image: "/Natto-Porfolio/Certificate/launched-cyber-certificate.jpg",
       pdf: "/Natto-Porfolio/Certificate/launched-cyber-certificate.pdf",
       type: "cert",
       description: "Certificate covering Linux, Windows AD, OSI/TCP-IP networking, secure protocols (DNS, SSH, TLS), and packet analysis."
@@ -536,7 +536,7 @@ const Certifications = () => {
       abbr: "Ethical Hacking",
       org: "EC-Council / Internship Studio",
       year: "2024",
-      image: "/Natto-Porfolio/Certificate/ethical-hacking-certificate.png",
+      image: "/Natto-Porfolio/Certificate/ethical-hacking-certificate.jpg",
       pdf: "/Natto-Porfolio/Certificate/ethical-hacking-certificate.pdf",
       type: "cert",
       description: "Practical certification in ethical hacking, vulnerability assessment, penetration testing techniques, and system hardening."
@@ -605,37 +605,48 @@ const Certifications = () => {
                 key={i}
                 className="w-[340px] shrink-0 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 group flex flex-col justify-between overflow-hidden box-glow hover:scale-[1.02]"
               >
-                {/* CERTIFICATE THUMBNAIL — styled preview, click to open PDF */}
+                {/* CERTIFICATE THUMBNAIL — real JPG preview, click to open PDF */}
                 <a
                   href={cert.pdf || undefined}
                   target={cert.pdf ? "_blank" : undefined}
                   rel="noopener noreferrer"
                   className={`block relative aspect-[16/10] overflow-hidden border-b border-border group/thumb ${cert.pdf ? "cursor-pointer" : "cursor-default"}`}
-                  style={{
-                    background: cert.type === "internship"
-                      ? "linear-gradient(135deg, hsl(var(--accent)/0.15) 0%, hsl(var(--accent)/0.05) 100%)"
-                      : "linear-gradient(135deg, hsl(var(--primary)/0.18) 0%, hsl(var(--primary)/0.05) 100%)"
-                  }}
                 >
-                  {/* Decorative grid */}
-                  <div className="absolute inset-0 opacity-10" style={{backgroundImage: "radial-gradient(circle, currentColor 1px, transparent 1px)", backgroundSize: "20px 20px"}} />
-
-                  {/* Shield / Briefcase icon centered */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-6">
-                    <div className={`p-4 rounded-2xl ${cert.type === "internship" ? "bg-accent/20 text-accent" : "bg-primary/20 text-primary"}`}>
-                      {cert.type === "internship"
-                        ? <Briefcase className="w-10 h-10" />
-                        : <Award className="w-10 h-10" />
-                      }
+                  {cert.image ? (
+                    <img
+                      src={cert.image}
+                      alt={`${cert.name} Preview`}
+                      loading="lazy"
+                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover/thumb:scale-105"
+                      onError={(e) => {
+                        // If image fails, hide it and show the gradient fallback
+                        const target = e.currentTarget as HTMLImageElement;
+                        target.style.display = "none";
+                        const fallback = target.nextElementSibling as HTMLElement;
+                        if (fallback) fallback.style.display = "flex";
+                      }}
+                    />
+                  ) : null}
+                  {/* Fallback gradient (shown when no image or image fails) */}
+                  <div
+                    className="absolute inset-0 flex-col items-center justify-center gap-3 p-6"
+                    style={{
+                      display: cert.image ? "none" : "flex",
+                      background: cert.type === "internship"
+                        ? "linear-gradient(135deg, hsl(var(--accent)/0.15) 0%, hsl(var(--accent)/0.05) 100%)"
+                        : "linear-gradient(135deg, hsl(var(--primary)/0.18) 0%, hsl(var(--primary)/0.05) 100%)"
+                    }}
+                  >
+                    <div className="absolute inset-0 opacity-10" style={{backgroundImage: "radial-gradient(circle, currentColor 1px, transparent 1px)", backgroundSize: "20px 20px"}} />
+                    <div className={`relative z-10 p-4 rounded-2xl ${cert.type === "internship" ? "bg-accent/20 text-accent" : "bg-primary/20 text-primary"}`}>
+                      {cert.type === "internship" ? <Briefcase className="w-10 h-10" /> : <Award className="w-10 h-10" />}
                     </div>
-                    <p className="text-xs font-semibold text-foreground/70 text-center leading-tight max-w-[200px]">
-                      {cert.org}
-                    </p>
+                    <p className="relative z-10 text-xs font-semibold text-foreground/70 text-center leading-tight max-w-[200px]">{cert.org}</p>
                   </div>
 
                   {/* Hover overlay */}
                   {cert.pdf && (
-                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover/thumb:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover/thumb:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
                       <span className="px-4 py-2 rounded-full bg-background/90 text-primary text-xs font-semibold flex items-center gap-1.5 shadow-lg">
                         <FileText className="w-3.5 h-3.5" /> Open PDF
                       </span>
@@ -643,7 +654,7 @@ const Certifications = () => {
                   )}
 
                   {/* Badge */}
-                  <span className={`absolute top-3 right-3 text-xs font-mono font-semibold px-2.5 py-1 rounded-full backdrop-blur-sm ${cert.type === "internship" ? "bg-accent/20 text-accent border border-accent/30" : "bg-background/80 text-primary border border-primary/30"}`}>
+                  <span className={`absolute top-3 right-3 z-20 text-xs font-mono font-semibold px-2.5 py-1 rounded-full backdrop-blur-sm ${cert.type === "internship" ? "bg-accent/20 text-accent border border-accent/30" : "bg-background/80 text-primary border border-primary/30"}`}>
                     {cert.abbr}
                   </span>
                 </a>
