@@ -5,6 +5,9 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  // 👇 Add this line
+  base: "/Natto-Portfolio/",
+
   server: {
     host: "::",
     port: 8080,
