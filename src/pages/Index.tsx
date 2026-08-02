@@ -2,7 +2,7 @@ import thmLogo from "@/assets/tryhackme.png";
 import htbLogo from "@/assets/htb.png";
 import ldLogo from "@/assets/letsdefence.png";
 import { Button } from "@/components/ui/button";
-import { Shield, ExternalLink, Mail, Github, Linkedin, Terminal, Menu, X, ShieldCheck, Eye, Database, Activity, Monitor, FileSearch, AlertTriangle, Search, MessageSquare, Cpu, Server, Briefcase } from "lucide-react";
+import { Shield, ExternalLink, Mail, Github, Linkedin, Terminal, Menu, X, ShieldCheck, Eye, Database, Activity, Monitor, FileSearch, AlertTriangle, Search, MessageSquare, Cpu, Server, Briefcase, ChevronLeft, ChevronRight, Award, FileText } from "lucide-react";
 import { useState, useEffect, ReactNode } from "react";
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-image.jpg";
@@ -499,6 +499,8 @@ const Contact = () => {
 };
 
 const Certifications = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   const certs = [
     {
       name: "Google Professional Cybersecurity Certificate",
@@ -506,7 +508,8 @@ const Certifications = () => {
       org: "Google / Coursera",
       year: "2024",
       pdf: "/Natto-Porfolio/Certificate/Google Professional Cybersecurity Certificate.pdf",
-      type: "cert"
+      type: "cert",
+      description: "Professional certification covering foundations of cybersecurity, security risks, networks, Linux, SQL, Python, and SIEM tools."
     },
     {
       name: "Elevate Labs Cyber Certificate",
@@ -514,7 +517,8 @@ const Certifications = () => {
       org: "Elevate Labs",
       year: "2024",
       pdf: "/Natto-Porfolio/Certificate/Elevats Labs Cyber Certificate.pdf",
-      type: "cert"
+      type: "cert",
+      description: "Hands-on certificate in web security, phishing simulation, firewall configuration, SIEM log monitoring, and incident response."
     },
     {
       name: "Launched Cyber Certificate",
@@ -522,7 +526,8 @@ const Certifications = () => {
       org: "Launched",
       year: "2024",
       pdf: "/Natto-Porfolio/Certificate/Launced Cyber Certificate.pdf",
-      type: "cert"
+      type: "cert",
+      description: "Certificate covering Linux, Windows AD, OSI/TCP-IP networking, secure protocols (DNS, SSH, TLS), and packet analysis."
     },
     {
       name: "Ethical Hacking Certificate",
@@ -530,7 +535,8 @@ const Certifications = () => {
       org: "EC-Council / Internship Studio",
       year: "2024",
       pdf: "/Natto-Porfolio/Certificate/Ethical HAcking.pdf",
-      type: "cert"
+      type: "cert",
+      description: "Practical certification in ethical hacking, vulnerability assessment, penetration testing techniques, and system hardening."
     },
     {
       name: "SOC Analyst Internship",
@@ -538,7 +544,8 @@ const Certifications = () => {
       org: "Internship Studio",
       year: "2024",
       pdf: null,
-      type: "internship"
+      type: "internship",
+      description: "Hands-on internship experience conducting real-world SOC operations, alert triage, malware detection, and SIEM monitoring."
     },
   ];
 
@@ -547,54 +554,130 @@ const Certifications = () => {
     "Nessus", "Suricata", "TheHive", "MISP", "Elastic SIEM", "Volatility", "Kali Linux"
   ];
 
+  const nextCert = () => {
+    setCurrentIndex((prev) => (prev + 1) % certs.length);
+  };
+
+  const prevCert = () => {
+    setCurrentIndex((prev) => (prev - 1 + certs.length) % certs.length);
+  };
+
+  const current = certs[currentIndex];
+
   return (
     <section id="certifications" className="py-24">
       <div className="container mx-auto px-4 md:px-6">
-        <ScrollReveal className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+        <ScrollReveal className="text-center max-w-2xl mx-auto mb-12 space-y-4">
           <h2 className="text-3xl md:text-4xl font-bold">Certifications & Experience</h2>
-          <p className="text-muted-foreground">Real credentials earned and hands-on experience in cybersecurity.</p>
+          <p className="text-muted-foreground">Browse my verified credentials and practical experience one by one.</p>
         </ScrollReveal>
 
-        <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {certs.map((cert, i) => (
-            <motion.div
-              key={i}
-              variants={staggerItem}
-              className="p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-colors group flex items-start gap-4"
-            >
-              <div className={`p-3 rounded-lg shrink-0 transition-colors ${cert.type === "internship" ? "bg-accent/10 group-hover:bg-accent/20" : "bg-primary/10 group-hover:bg-primary/20"}`}>
-                {cert.type === "internship"
-                  ? <Briefcase className="w-6 h-6 text-accent" />
-                  : <ShieldCheck className="w-6 h-6 text-primary" />
-                }
-              </div>
-              <div className="flex-grow">
-                <h3 className="font-bold text-lg">{cert.abbr}</h3>
-                <p className="text-sm text-muted-foreground">{cert.name}</p>
-                <p className={`text-xs mt-1 ${cert.type === "internship" ? "text-accent" : "text-primary"}`}>{cert.org} · {cert.year}</p>
-                {cert.pdf && (
-                  <a
-                    href={cert.pdf}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 mt-3 text-xs text-primary border border-primary/30 rounded-full px-3 py-1 hover:bg-primary/10 transition-colors"
-                  >
-                    <ExternalLink className="w-3 h-3" /> View Certificate
-                  </a>
-                )}
-                {cert.type === "internship" && (
-                  <span className="inline-flex items-center gap-1 mt-3 text-xs text-accent border border-accent/30 rounded-full px-3 py-1">
-                    Hands-on Experience
-                  </span>
-                )}
-              </div>
-            </motion.div>
-          ))}
-        </StaggerContainer>
+        {/* ONE BY ONE CAROUSEL SHOWCASE */}
+        <div className="max-w-3xl mx-auto mb-16 relative">
+          <div className="flex items-center justify-between mb-4 px-2">
+            <span className="text-xs font-mono text-primary font-semibold uppercase tracking-wider">
+              Item {String(currentIndex + 1).padStart(2, '0')} of {String(certs.length).padStart(2, '0')}
+            </span>
+            <div className="flex items-center space-x-2">
+              <button
+                onClick={prevCert}
+                className="p-2 rounded-full border border-border bg-card hover:bg-primary/10 hover:border-primary/50 text-foreground transition-all duration-200"
+                aria-label="Previous Certificate"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={nextCert}
+                className="p-2 rounded-full border border-border bg-card hover:bg-primary/10 hover:border-primary/50 text-foreground transition-all duration-200"
+                aria-label="Next Certificate"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
 
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -40 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="p-8 md:p-10 rounded-2xl bg-card border border-border box-glow relative overflow-hidden"
+          >
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+              <div className={`p-5 rounded-2xl shrink-0 ${current.type === "internship" ? "bg-accent/15 text-accent" : "bg-primary/15 text-primary"}`}>
+                {current.type === "internship" ? (
+                  <Briefcase className="w-10 h-10" />
+                ) : (
+                  <Award className="w-10 h-10" />
+                )}
+              </div>
+
+              <div className="space-y-3 flex-grow">
+                <div className="flex items-center gap-3 flex-wrap">
+                  <span className={`px-3 py-1 rounded-full text-xs font-mono font-semibold ${current.type === "internship" ? "bg-accent/10 text-accent border border-accent/20" : "bg-primary/10 text-primary border border-primary/20"}`}>
+                    {current.abbr}
+                  </span>
+                  <span className="text-xs text-muted-foreground font-mono">
+                    {current.year}
+                  </span>
+                </div>
+
+                <h3 className="text-2xl font-bold text-foreground">
+                  {current.name}
+                </h3>
+
+                <p className="text-sm font-medium text-primary">
+                  Issued by: {current.org}
+                </p>
+
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {current.description}
+                </p>
+
+                {current.pdf && (
+                  <div className="pt-2">
+                    <a
+                      href={current.pdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground font-medium text-sm transition-all duration-200"
+                    >
+                      <FileText className="w-4 h-4" />
+                      View Certificate PDF
+                      <ExternalLink className="w-4 h-4 ml-1" />
+                    </a>
+                  </div>
+                )}
+                {current.type === "internship" && (
+                  <div className="pt-2">
+                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent/10 text-accent font-medium text-sm border border-accent/20">
+                      <Briefcase className="w-4 h-4" />
+                      Hands-on Experience
+                    </span>
+                  </div>
+                )}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* DOT INDICATORS */}
+          <div className="flex justify-center items-center space-x-2 mt-6">
+            {certs.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentIndex(idx)}
+                className={`h-2 rounded-full transition-all duration-300 ${currentIndex === idx ? "w-8 bg-primary" : "w-2 bg-muted hover:bg-primary/40"}`}
+                aria-label={`Go to certificate ${idx + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* TOOLS & PLATFORMS */}
         <ScrollReveal className="text-center">
           <h3 className="text-xl font-bold mb-6">Tools & Platforms</h3>
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
             {tools.map((tool) => (
               <span key={tool} className="px-4 py-2 rounded-full bg-secondary border border-border text-sm font-medium text-foreground hover:border-primary/50 hover:bg-primary/10 transition-colors">
                 {tool}
