@@ -760,7 +760,7 @@ const Leadership = () => {
       icon: <Trophy className="w-6 h-6 text-yellow-400" />,
       description: "Represented my department in badminton competitions and became Department Day Champion through dedication, teamwork, and consistent practice.",
       highlights: ["🥇 Department Day Champion", "🏸 Competitive Badminton Player", "🏆 Multiple Tournament Participation", "🤝 Team Spirit"],
-      images: [`${baseUrl}activities/badminton-action.jpg`, `${baseUrl}activities/trophy-photo.jpg`],
+      images: [`${baseUrl}activities/badminton-trophy-team.jpg`, `${baseUrl}activities/badminton-medal-certificate.jpg`],
       glowColor: "hover:border-yellow-500/60 hover:shadow-yellow-500/20",
     },
     {
@@ -769,8 +769,8 @@ const Leadership = () => {
       badgeColor: "bg-purple-500/20 text-purple-400 border-purple-500/30",
       icon: <Globe className="w-6 h-6 text-purple-400" />,
       description: "Actively represented international students while participating in cultural exchange programs, university events, and community activities that strengthened leadership and communication skills.",
-      highlights: ["🌍 International Student", "🤝 Cultural Exchange", "🎓 University Representative", "🇧🇩 Proudly Represented Bangladesh"],
-      images: [`${baseUrl}activities/international-leadership.jpg`, `${baseUrl}activities/cultural-event-award.jpg`],
+      highlights: ["🌍 International Student Representative", "🤝 Cultural Exchange Programs", "🎓 Andhra University WAVES 2024", "🇧🇩 Proudly Represented Bangladesh"],
+      images: [`${baseUrl}activities/alumni-meet-waves-2024.jpg`, `${baseUrl}activities/international-leadership.jpg`],
       glowColor: "hover:border-purple-500/60 hover:shadow-purple-500/20",
     },
     {
@@ -779,8 +779,8 @@ const Leadership = () => {
       badgeColor: "bg-green-500/20 text-green-400 border-green-500/30",
       icon: <Users className="w-6 h-6 text-green-400" />,
       description: "Regularly participated in university sports events including football and badminton, promoting teamwork, leadership, communication, and healthy competition.",
-      highlights: ["⚽ Football Team", "🏸 Badminton Team", "👥 Team Collaboration", "💪 Physical Fitness"],
-      images: [`${baseUrl}activities/football-team-ground.jpg`, `${baseUrl}activities/marathon-day.jpg`],
+      highlights: ["⚽ Inter-Collegiate Games 2023-24", "🏸 University Team Selection Trials", "👥 Team Collaboration & Leadership", "💪 Physical Fitness"],
+      images: [`${baseUrl}activities/intercollegiate-sports-trophy.jpg`, `${baseUrl}activities/football-team-ground.jpg`],
       glowColor: "hover:border-green-500/60 hover:shadow-green-500/20",
     },
     {
@@ -789,7 +789,7 @@ const Leadership = () => {
       badgeColor: "bg-orange-500/20 text-orange-400 border-orange-500/30",
       icon: <Award className="w-6 h-6 text-orange-400" />,
       description: "Received multiple awards and recognitions for academic, cultural, sports, and leadership activities throughout my university journey.",
-      highlights: ["🏆 Championship Winner", "🥇 Sports Awards", "🎖 University Recognition", "🌟 Leadership Recognition"],
+      highlights: ["🏆 CONNECT 2K24 Competition Winner", "🥇 Sports & Cultural Awards", "🎖 University Leadership Honor", "🌟 Academic & Sports Recognition"],
       images: [`${baseUrl}activities/connect2k24-awards.jpg`, `${baseUrl}activities/trophy-photo.jpg`],
       glowColor: "hover:border-orange-500/60 hover:shadow-orange-500/20",
     },
@@ -799,27 +799,29 @@ const Leadership = () => {
       badgeColor: "bg-pink-500/20 text-pink-400 border-pink-500/30",
       icon: <Heart className="w-6 h-6 text-pink-400" />,
       description: "Participated in cultural celebrations, university events, and community engagement programs, strengthening communication, adaptability, and leadership.",
-      highlights: ["🎭 Cultural Events", "🤝 Community Participation", "🎉 University Celebrations", "🌏 International Networking"],
-      images: [`${baseUrl}activities/cultural-event-award.jpg`, `${baseUrl}activities/international-leadership.jpg`],
+      highlights: ["🎭 Cultural Events & Celebrations", "🤝 Community Participation", "🎉 University International Day", "🌏 Cultural Diversity & Networking"],
+      images: [`${baseUrl}activities/cultural-event-award.jpg`, `${baseUrl}activities/alumni-meet-waves-2024.jpg`],
       glowColor: "hover:border-pink-500/60 hover:shadow-pink-500/20",
     },
   ];
 
   const timeline = [
     { year: "2023", event: "Started University Sports Participation", icon: <Star className="w-4 h-4" /> },
+    { year: "2024", event: "Inter-Collegiate Games & Sports Selection", icon: <Trophy className="w-4 h-4" /> },
     { year: "2024", event: "Department Day Badminton Champion", icon: <Trophy className="w-4 h-4" /> },
-    { year: "2024", event: "International Student Cultural Activities", icon: <Globe className="w-4 h-4" /> },
+    { year: "2024", event: "Andhra University WAVES Alumni International Delegation", icon: <Globe className="w-4 h-4" /> },
     { year: "2025", event: "Vizag Navy Half Marathon — 21.1 KM", icon: <Timer className="w-4 h-4" /> },
-    { year: "2025", event: "Sri Krishna Marathon Completion", icon: <MapPin className="w-4 h-4" /> },
   ];
 
   const galleryImages = [
-    { src: `${baseUrl}activities/marathon-running.jpg`, caption: "Night Running — Vizag Navy Marathon" },
-    { src: `${baseUrl}activities/badminton-action.jpg`, caption: "Badminton Championship Match" },
-    { src: `${baseUrl}activities/international-leadership.jpg`, caption: "ICCR International Student Medal Ceremony" },
-    { src: `${baseUrl}activities/football-team-ground.jpg`, caption: "University Football Team" },
-    { src: `${baseUrl}activities/connect2k24-awards.jpg`, caption: "CONNECT 2K24 Trophy Presentation" },
-    { src: `${baseUrl}activities/cultural-event-award.jpg`, caption: "Cultural Event Honor in Traditional Attire" },
+    { src: `${baseUrl}activities/alumni-meet-waves-2024.jpg`, caption: "WAVES 2024 — International Delegation with Bangladesh Flag" },
+    { src: `${baseUrl}activities/badminton-trophy-team.jpg`, caption: "Badminton Championship Trophy Victory Celebration" },
+    { src: `${baseUrl}activities/intercollegiate-sports-trophy.jpg`, caption: "Inter-Collegiate Games & Sports Selection Trials 2023-24" },
+    { src: `${baseUrl}activities/badminton-action.jpg`, caption: "Indoor Badminton Championship Match Action" },
+    { src: `${baseUrl}activities/marathon-running.jpg`, caption: "Vizag Navy Half Marathon Night Run — 21.1 KM" },
+    { src: `${baseUrl}activities/international-leadership.jpg`, caption: "ICCR 73rd Foundations Day International Medal Ceremony" },
+    { src: `${baseUrl}activities/football-team-ground.jpg`, caption: "University Football Team on Sports Ground" },
+    { src: `${baseUrl}activities/connect2k24-awards.jpg`, caption: "CONNECT 2K24 Trophy Award Stage Presentation" },
   ];
 
   return (
@@ -956,7 +958,7 @@ const Leadership = () => {
           <h3 className="text-2xl font-bold font-mono mb-2">Journey Beyond Cybersecurity</h3>
           <p className="text-muted-foreground text-sm">Real moments from marathons, tournaments & university life</p>
         </ScrollReveal>
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-24">
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-24">
           {galleryImages.map((img, i) => (
             <motion.div
               key={i}
