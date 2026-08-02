@@ -2,7 +2,7 @@ import thmLogo from "@/assets/tryhackme.png";
 import htbLogo from "@/assets/htb.png";
 import ldLogo from "@/assets/letsdefence.png";
 import { Button } from "@/components/ui/button";
-import { Shield, ExternalLink, Mail, Github, Linkedin, Terminal, Menu, X, ShieldCheck, Eye, Database, Activity, Monitor, FileSearch, AlertTriangle, Search, MessageSquare, Cpu, Server } from "lucide-react";
+import { Shield, ExternalLink, Mail, Github, Linkedin, Terminal, Menu, X, ShieldCheck, Eye, Database, Activity, Monitor, FileSearch, AlertTriangle, Search, MessageSquare, Cpu, Server, Briefcase } from "lucide-react";
 import { useState, useEffect, ReactNode } from "react";
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-image.jpg";
@@ -500,37 +500,93 @@ const Contact = () => {
 
 const Certifications = () => {
   const certs = [
-    { name: "GIAC Certified Intrusion Analyst", abbr: "GCIA", org: "SANS / GIAC", year: "2022" },
-    { name: "GIAC Certified Incident Handler", abbr: "GCIH", org: "SANS / GIAC", year: "2021" },
-    { name: "CompTIA CySA+", abbr: "CySA+", org: "CompTIA", year: "2020" },
-    { name: "Certified SOC Analyst", abbr: "CSA", org: "EC-Council", year: "2019" },
-    { name: "Splunk Core Certified Power User", abbr: "SCPU", org: "Splunk", year: "2023" },
-    { name: "Microsoft SC-200", abbr: "SC-200", org: "Microsoft", year: "2023" },
+    {
+      name: "Google Professional Cybersecurity Certificate",
+      abbr: "Google Cybersecurity",
+      org: "Google / Coursera",
+      year: "2024",
+      pdf: "/Natto-Porfolio/Certificate/Google Professional Cybersecurity Certificate.pdf",
+      type: "cert"
+    },
+    {
+      name: "Elevate Labs Cyber Certificate",
+      abbr: "Elevate Labs",
+      org: "Elevate Labs",
+      year: "2024",
+      pdf: "/Natto-Porfolio/Certificate/Elevats Labs Cyber Certificate.pdf",
+      type: "cert"
+    },
+    {
+      name: "Launched Cyber Certificate",
+      abbr: "Launched Cyber",
+      org: "Launched",
+      year: "2024",
+      pdf: "/Natto-Porfolio/Certificate/Launced Cyber Certificate.pdf",
+      type: "cert"
+    },
+    {
+      name: "Ethical Hacking Certificate",
+      abbr: "Ethical Hacking",
+      org: "EC-Council / Internship Studio",
+      year: "2024",
+      pdf: "/Natto-Porfolio/Certificate/Ethical HAcking.pdf",
+      type: "cert"
+    },
+    {
+      name: "SOC Analyst Internship",
+      abbr: "SOC Internship",
+      org: "Internship Studio",
+      year: "2024",
+      pdf: null,
+      type: "internship"
+    },
   ];
 
   const tools = [
-    "Splunk", "Microsoft Sentinel", "CrowdStrike", "Wireshark", "Volatility",
-    "YARA", "Suricata", "Velociraptor", "TheHive", "MISP", "Elastic SIEM", "Autopsy"
+    "Splunk", "Microsoft Sentinel", "Wazuh", "Wireshark", "Nmap",
+    "Nessus", "Suricata", "TheHive", "MISP", "Elastic SIEM", "Volatility", "Kali Linux"
   ];
 
   return (
     <section id="certifications" className="py-24">
       <div className="container mx-auto px-4 md:px-6">
         <ScrollReveal className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold">Certifications & Tools</h2>
-          <p className="text-muted-foreground">Industry-recognized credentials and the defensive tools I work with daily.</p>
+          <h2 className="text-3xl md:text-4xl font-bold">Certifications & Experience</h2>
+          <p className="text-muted-foreground">Real credentials earned and hands-on experience in cybersecurity.</p>
         </ScrollReveal>
 
         <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {certs.map((cert, i) => (
-            <motion.div key={i} variants={staggerItem} className="p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-colors group flex items-start gap-4">
-              <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors shrink-0">
-                <ShieldCheck className="w-6 h-6 text-primary" />
+            <motion.div
+              key={i}
+              variants={staggerItem}
+              className="p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-colors group flex items-start gap-4"
+            >
+              <div className={`p-3 rounded-lg shrink-0 transition-colors ${cert.type === "internship" ? "bg-accent/10 group-hover:bg-accent/20" : "bg-primary/10 group-hover:bg-primary/20"}`}>
+                {cert.type === "internship"
+                  ? <Briefcase className="w-6 h-6 text-accent" />
+                  : <ShieldCheck className="w-6 h-6 text-primary" />
+                }
               </div>
-              <div>
+              <div className="flex-grow">
                 <h3 className="font-bold text-lg">{cert.abbr}</h3>
                 <p className="text-sm text-muted-foreground">{cert.name}</p>
-                <p className="text-xs text-primary mt-1">{cert.org} · {cert.year}</p>
+                <p className={`text-xs mt-1 ${cert.type === "internship" ? "text-accent" : "text-primary"}`}>{cert.org} · {cert.year}</p>
+                {cert.pdf && (
+                  <a
+                    href={cert.pdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 mt-3 text-xs text-primary border border-primary/30 rounded-full px-3 py-1 hover:bg-primary/10 transition-colors"
+                  >
+                    <ExternalLink className="w-3 h-3" /> View Certificate
+                  </a>
+                )}
+                {cert.type === "internship" && (
+                  <span className="inline-flex items-center gap-1 mt-3 text-xs text-accent border border-accent/30 rounded-full px-3 py-1">
+                    Hands-on Experience
+                  </span>
+                )}
               </div>
             </motion.div>
           ))}
