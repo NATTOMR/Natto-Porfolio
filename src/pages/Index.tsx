@@ -553,32 +553,52 @@ const Certifications = () => {
     "Nessus", "Suricata", "TheHive", "MISP", "Elastic SIEM", "Volatility", "Kali Linux"
   ];
 
+  // Duplicate items for seamless continuous looping
+  const duplicatedCerts = [...certs, ...certs, ...certs];
+
   return (
-    <section id="certifications" className="py-24">
+    <section id="certifications" className="py-24 overflow-hidden">
+      <style>{`
+        @keyframes certMarquee {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-33.333333%); }
+        }
+        .animate-cert-marquee {
+          display: flex;
+          width: max-content;
+          animation: certMarquee 30s linear infinite;
+        }
+        .animate-cert-marquee:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+
       <div className="container mx-auto px-4 md:px-6">
         <ScrollReveal className="text-center max-w-2xl mx-auto mb-16 space-y-4">
           <h2 className="text-3xl md:text-4xl font-bold">Certifications & Experience</h2>
           <p className="text-muted-foreground">Industry-recognized credentials and hands-on cybersecurity experience.</p>
         </ScrollReveal>
+      </div>
 
-        {/* SINGLE HORIZONTAL SCROLLING ROW */}
-        <div className="relative max-w-6xl mx-auto mb-16">
-          <div
-            className="flex flex-nowrap gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory py-4 px-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-            onWheel={(e) => {
-              if (e.deltaY !== 0) {
-                e.currentTarget.scrollLeft += e.deltaY;
-              }
-            }}
-          >
-            {certs.map((cert, i) => (
-              <motion.div
+      {/* INFINITE HORIZONTAL MARQUEE CAROUSEL */}
+      <div className="relative w-full mb-16">
+        {/* Subtle gradient edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+
+        <div
+          className="overflow-x-auto scroll-smooth py-6 px-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          onWheel={(e) => {
+            if (e.deltaY !== 0) {
+              e.currentTarget.scrollLeft += e.deltaY;
+            }
+          }}
+        >
+          <div className="animate-cert-marquee gap-6 pr-6">
+            {duplicatedCerts.map((cert, i) => (
+              <div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="w-[340px] shrink-0 snap-start p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 group flex flex-col justify-between space-y-4 box-glow"
+                className="w-[340px] shrink-0 p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 group flex flex-col justify-between space-y-4 box-glow hover:scale-[1.02]"
               >
                 <div className="flex items-start justify-between">
                   <div className={`p-3 rounded-lg shrink-0 transition-colors ${cert.type === "internship" ? "bg-accent/10 group-hover:bg-accent/20" : "bg-primary/10 group-hover:bg-primary/20"}`}>
@@ -623,11 +643,13 @@ const Certifications = () => {
                     </span>
                   )}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
+      </div>
 
+      <div className="container mx-auto px-4 md:px-6">
         {/* TOOLS & PLATFORMS */}
         <ScrollReveal className="text-center">
           <h3 className="text-xl font-bold mb-6">Tools & Platforms</h3>
