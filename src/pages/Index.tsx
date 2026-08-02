@@ -506,15 +506,17 @@ const Certifications = () => {
       abbr: "Google Cybersecurity",
       org: "Google / Coursera",
       year: "2024",
+      image: "/Natto-Porfolio/Certificate/Google Professional Cybersecurity Certificate.png",
       pdf: "/Natto-Porfolio/Certificate/Google Professional Cybersecurity Certificate.pdf",
       type: "cert",
       description: "Professional certification covering foundations of cybersecurity, networks, Linux, SQL, Python, and SIEM tools."
     },
     {
-      name: "Elevate Labs Cyber Certificate",
-      abbr: "Elevate Labs",
+      name: "Elevats Labs Cyber Certificate",
+      abbr: "Elevats Labs",
       org: "Elevate Labs",
       year: "2024",
+      image: "/Natto-Porfolio/Certificate/Elevats Labs Cyber Certificate.png",
       pdf: "/Natto-Porfolio/Certificate/Elevats Labs Cyber Certificate.pdf",
       type: "cert",
       description: "Hands-on certificate in web security, phishing simulation, firewall configuration, SIEM monitoring, and incident response."
@@ -524,6 +526,7 @@ const Certifications = () => {
       abbr: "Launched Cyber",
       org: "Launched",
       year: "2024",
+      image: "/Natto-Porfolio/Certificate/Launced Cyber Certificate.png",
       pdf: "/Natto-Porfolio/Certificate/Launced Cyber Certificate.pdf",
       type: "cert",
       description: "Certificate covering Linux, Windows AD, OSI/TCP-IP networking, secure protocols (DNS, SSH, TLS), and packet analysis."
@@ -533,6 +536,7 @@ const Certifications = () => {
       abbr: "Ethical Hacking",
       org: "EC-Council / Internship Studio",
       year: "2024",
+      image: "/Natto-Porfolio/Certificate/Ethical HAcking.png",
       pdf: "/Natto-Porfolio/Certificate/Ethical HAcking.pdf",
       type: "cert",
       description: "Practical certification in ethical hacking, vulnerability assessment, penetration testing techniques, and system hardening."
@@ -542,6 +546,7 @@ const Certifications = () => {
       abbr: "SOC Internship",
       org: "Internship Studio",
       year: "2024",
+      image: null,
       pdf: null,
       type: "internship",
       description: "Hands-on internship experience conducting real-world SOC operations, alert triage, malware detection, and SIEM monitoring."
@@ -566,7 +571,7 @@ const Certifications = () => {
         .animate-cert-marquee {
           display: flex;
           width: max-content;
-          animation: certMarquee 30s linear infinite;
+          animation: certMarquee 35s linear infinite;
         }
         .animate-cert-marquee:hover {
           animation-play-state: paused;
@@ -598,50 +603,74 @@ const Certifications = () => {
             {duplicatedCerts.map((cert, i) => (
               <div
                 key={i}
-                className="w-[340px] shrink-0 p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 group flex flex-col justify-between space-y-4 box-glow hover:scale-[1.02]"
+                className="w-[340px] shrink-0 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 group flex flex-col justify-between overflow-hidden box-glow hover:scale-[1.02]"
               >
-                <div className="flex items-start justify-between">
-                  <div className={`p-3 rounded-lg shrink-0 transition-colors ${cert.type === "internship" ? "bg-accent/10 group-hover:bg-accent/20" : "bg-primary/10 group-hover:bg-primary/20"}`}>
-                    {cert.type === "internship"
-                      ? <Briefcase className="w-6 h-6 text-accent" />
-                      : <ShieldCheck className="w-6 h-6 text-primary" />
-                    }
-                  </div>
-                  <span className={`text-xs font-mono font-semibold px-2.5 py-1 rounded-full ${cert.type === "internship" ? "bg-accent/10 text-accent border border-accent/20" : "bg-primary/10 text-primary border border-primary/20"}`}>
-                    {cert.abbr}
-                  </span>
-                </div>
-
-                <div className="flex-grow space-y-2">
-                  <h3 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors">
-                    {cert.name}
-                  </h3>
-                  <p className={`text-xs font-medium ${cert.type === "internship" ? "text-accent" : "text-primary"}`}>
-                    {cert.org} · {cert.year}
-                  </p>
-                  <p className="text-sm text-muted-foreground leading-relaxed pt-1">
-                    {cert.description}
-                  </p>
-                </div>
-
-                <div className="pt-2">
-                  {cert.pdf ? (
-                    <a
-                      href={cert.pdf}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs text-primary border border-primary/30 rounded-full px-3 py-1.5 hover:bg-primary/10 transition-colors font-medium"
-                    >
-                      <FileText className="w-3.5 h-3.5" />
-                      View Certificate
-                      <ExternalLink className="w-3 h-3 ml-0.5" />
-                    </a>
-                  ) : (
-                    <span className="inline-flex items-center gap-1.5 text-xs text-accent border border-accent/30 rounded-full px-3 py-1.5 font-medium">
-                      <Briefcase className="w-3.5 h-3.5" />
-                      Hands-on Experience
+                {/* PREVIEW IMAGE AT TOP */}
+                {cert.image ? (
+                  <a
+                    href={cert.pdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block relative aspect-[16/10] overflow-hidden bg-muted/30 group/img cursor-pointer"
+                    title={`Open ${cert.name} PDF`}
+                  >
+                    <img
+                      src={cert.image}
+                      alt={`${cert.name} Preview`}
+                      loading="lazy"
+                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover/img:scale-105 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover/img:opacity-100 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <span className="px-3 py-1.5 rounded-full bg-background/90 text-primary text-xs font-semibold flex items-center gap-1.5 shadow-md">
+                        <ExternalLink className="w-3.5 h-3.5" /> View PDF
+                      </span>
+                    </div>
+                    <span className={`absolute top-3 right-3 text-xs font-mono font-semibold px-2.5 py-1 rounded-full backdrop-blur-md ${cert.type === "internship" ? "bg-accent/20 text-accent border border-accent/30" : "bg-background/80 text-primary border border-primary/30"}`}>
+                      {cert.abbr}
                     </span>
-                  )}
+                  </a>
+                ) : (
+                  <div className="relative aspect-[16/10] bg-accent/10 flex items-center justify-center p-6 border-b border-border">
+                    <Briefcase className="w-12 h-12 text-accent" />
+                    <span className="absolute top-3 right-3 text-xs font-mono font-semibold px-2.5 py-1 rounded-full bg-accent/20 text-accent border border-accent/30">
+                      {cert.abbr}
+                    </span>
+                  </div>
+                )}
+
+                {/* CARD CONTENT */}
+                <div className="p-6 flex flex-col flex-grow justify-between space-y-4">
+                  <div className="space-y-2">
+                    <h3 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors">
+                      {cert.name}
+                    </h3>
+                    <p className={`text-xs font-medium ${cert.type === "internship" ? "text-accent" : "text-primary"}`}>
+                      {cert.org} · {cert.year}
+                    </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed pt-1">
+                      {cert.description}
+                    </p>
+                  </div>
+
+                  <div className="pt-2">
+                    {cert.pdf ? (
+                      <a
+                        href={cert.pdf}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-primary-foreground border border-primary/30 font-medium text-xs transition-all duration-200"
+                      >
+                        <FileText className="w-3.5 h-3.5" />
+                        View Certificate
+                        <ExternalLink className="w-3.5 h-3.5 ml-0.5" />
+                      </a>
+                    ) : (
+                      <span className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-lg bg-accent/10 text-accent border border-accent/30 font-medium text-xs">
+                        <Briefcase className="w-3.5 h-3.5" />
+                        Hands-on Experience
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
