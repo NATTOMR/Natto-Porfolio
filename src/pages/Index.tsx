@@ -506,8 +506,8 @@ const Certifications = () => {
       abbr: "Google Cybersecurity",
       org: "Google / Coursera",
       year: "2024",
-      image: "/Natto-Porfolio/Certificate/Google Professional Cybersecurity Certificate.png",
-      pdf: "/Natto-Porfolio/Certificate/Google Professional Cybersecurity Certificate.pdf",
+      image: "/Natto-Porfolio/Certificate/google-cybersecurity-certificate.png",
+      pdf: "/Natto-Porfolio/Certificate/google-cybersecurity-certificate.pdf",
       type: "cert",
       description: "Professional certification covering foundations of cybersecurity, networks, Linux, SQL, Python, and SIEM tools."
     },
@@ -516,8 +516,8 @@ const Certifications = () => {
       abbr: "Elevats Labs",
       org: "Elevate Labs",
       year: "2024",
-      image: "/Natto-Porfolio/Certificate/Elevats Labs Cyber Certificate.png",
-      pdf: "/Natto-Porfolio/Certificate/Elevats Labs Cyber Certificate.pdf",
+      image: "/Natto-Porfolio/Certificate/elevate-labs-certificate.png",
+      pdf: "/Natto-Porfolio/Certificate/elevate-labs-certificate.pdf",
       type: "cert",
       description: "Hands-on certificate in web security, phishing simulation, firewall configuration, SIEM monitoring, and incident response."
     },
@@ -526,8 +526,8 @@ const Certifications = () => {
       abbr: "Launched Cyber",
       org: "Launched",
       year: "2024",
-      image: "/Natto-Porfolio/Certificate/Launced Cyber Certificate.png",
-      pdf: "/Natto-Porfolio/Certificate/Launced Cyber Certificate.pdf",
+      image: "/Natto-Porfolio/Certificate/launched-cyber-certificate.png",
+      pdf: "/Natto-Porfolio/Certificate/launched-cyber-certificate.pdf",
       type: "cert",
       description: "Certificate covering Linux, Windows AD, OSI/TCP-IP networking, secure protocols (DNS, SSH, TLS), and packet analysis."
     },
@@ -536,8 +536,8 @@ const Certifications = () => {
       abbr: "Ethical Hacking",
       org: "EC-Council / Internship Studio",
       year: "2024",
-      image: "/Natto-Porfolio/Certificate/Ethical HAcking.png",
-      pdf: "/Natto-Porfolio/Certificate/Ethical HAcking.pdf",
+      image: "/Natto-Porfolio/Certificate/ethical-hacking-certificate.png",
+      pdf: "/Natto-Porfolio/Certificate/ethical-hacking-certificate.pdf",
       type: "cert",
       description: "Practical certification in ethical hacking, vulnerability assessment, penetration testing techniques, and system hardening."
     },
