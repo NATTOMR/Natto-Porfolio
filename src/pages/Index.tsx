@@ -514,6 +514,26 @@ const Certifications = () => {
       description: "Professional certification covering foundations of cybersecurity, networks, Linux, SQL, Python, and SIEM tools."
     },
     {
+      name: "Cyber Security and Privacy Certificate",
+      abbr: "Cybersecurity & Privacy",
+      org: "Cyber Security & Privacy Certification",
+      year: "2024",
+      image: `${baseUrl}Certificate/cyber-security-privacy-certificate.jpg`,
+      pdf: `${baseUrl}Certificate/cyber-security-privacy-certificate.pdf`,
+      type: "cert",
+      description: "Comprehensive certification covering data privacy regulations, information security fundamentals, risk management, and defensive controls."
+    },
+    {
+      name: "Computer Network and Internet Protocols Certificate",
+      abbr: "Networks & Protocols",
+      org: "Computer Networks Certification",
+      year: "2024",
+      image: `${baseUrl}Certificate/computer-network-certificate.jpg`,
+      pdf: `${baseUrl}Certificate/computer-network-certificate.pdf`,
+      type: "cert",
+      description: "In-depth certification covering OSI/TCP-IP architecture, routing protocols, DNS/DHCP, packet inspection, and network security."
+    },
+    {
       name: "Elevats Labs Cyber Certificate",
       abbr: "Elevats Labs",
       org: "Elevate Labs",
@@ -542,16 +562,6 @@ const Certifications = () => {
       pdf: `${baseUrl}Certificate/ethical-hacking-certificate.pdf`,
       type: "cert",
       description: "Practical certification in ethical hacking, vulnerability assessment, penetration testing techniques, and system hardening."
-    },
-    {
-      name: "SOC Analyst Internship",
-      abbr: "SOC Internship",
-      org: "Internship Studio",
-      year: "2024",
-      image: null,
-      pdf: null,
-      type: "internship",
-      description: "Hands-on internship experience conducting real-world SOC operations, alert triage, malware detection, and SIEM monitoring."
     },
   ];
 
