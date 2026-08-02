@@ -500,11 +500,6 @@ const Contact = () => {
 };
 
 const Certifications = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
-  const [isHovered, setIsHovered] = useState(false);
-
   const certs = [
     {
       name: "Google Professional Cybersecurity Certificate",
@@ -558,34 +553,6 @@ const Certifications = () => {
     "Nessus", "Suricata", "TheHive", "MISP", "Elastic SIEM", "Volatility", "Kali Linux"
   ];
 
-  // Auto-slide every 3 seconds, pause when hovering
-  useEffect(() => {
-    if (!emblaApi || isHovered) return;
-
-    const interval = setInterval(() => {
-      emblaApi.scrollNext();
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [emblaApi, isHovered]);
-
-  // Sync scroll snaps and active index for pagination dots
-  useEffect(() => {
-    if (!emblaApi) return;
-
-    const onSelect = () => {
-      setSelectedIndex(emblaApi.selectedScrollSnap());
-    };
-
-    setScrollSnaps(emblaApi.scrollSnapList());
-    emblaApi.on("select", onSelect);
-    emblaApi.on("reInit", onSelect);
-
-    return () => {
-      emblaApi.off("select", onSelect);
-    };
-  }, [emblaApi]);
-
   return (
     <section id="certifications" className="py-24">
       <div className="container mx-auto px-4 md:px-6">
@@ -594,95 +561,69 @@ const Certifications = () => {
           <p className="text-muted-foreground">Industry-recognized credentials and hands-on cybersecurity experience.</p>
         </ScrollReveal>
 
-        {/* RESPONSIVE AUTO-SLIDING CAROUSEL CONTAINER */}
-        <div
-          className="relative max-w-6xl mx-auto mb-16 px-4 md:px-12"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          {/* CAROUSEL VIEWPORT */}
-          <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex -ml-6">
-              {certs.map((cert, i) => (
-                <div
-                  key={i}
-                  className="pl-6 min-w-0 shrink-0 grow-0 basis-full md:basis-1/2 lg:basis-1/3"
-                >
-                  <div className="p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 group flex flex-col h-full space-y-4 box-glow">
-                    <div className="flex items-start justify-between">
-                      <div className={`p-3 rounded-lg shrink-0 transition-colors ${cert.type === "internship" ? "bg-accent/10 group-hover:bg-accent/20" : "bg-primary/10 group-hover:bg-primary/20"}`}>
-                        {cert.type === "internship"
-                          ? <Briefcase className="w-6 h-6 text-accent" />
-                          : <ShieldCheck className="w-6 h-6 text-primary" />
-                        }
-                      </div>
-                      <span className={`text-xs font-mono font-semibold px-2.5 py-1 rounded-full ${cert.type === "internship" ? "bg-accent/10 text-accent border border-accent/20" : "bg-primary/10 text-primary border border-primary/20"}`}>
-                        {cert.abbr}
-                      </span>
-                    </div>
-
-                    <div className="flex-grow space-y-2">
-                      <h3 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors">
-                        {cert.name}
-                      </h3>
-                      <p className={`text-xs font-medium ${cert.type === "internship" ? "text-accent" : "text-primary"}`}>
-                        {cert.org} · {cert.year}
-                      </p>
-                      <p className="text-sm text-muted-foreground leading-relaxed pt-1">
-                        {cert.description}
-                      </p>
-                    </div>
-
-                    <div className="pt-2">
-                      {cert.pdf ? (
-                        <a
-                          href={cert.pdf}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 text-xs text-primary border border-primary/30 rounded-full px-3 py-1.5 hover:bg-primary/10 transition-colors font-medium"
-                        >
-                          <FileText className="w-3.5 h-3.5" />
-                          View Certificate
-                          <ExternalLink className="w-3 h-3 ml-0.5" />
-                        </a>
-                      ) : (
-                        <span className="inline-flex items-center gap-1.5 text-xs text-accent border border-accent/30 rounded-full px-3 py-1.5 font-medium">
-                          <Briefcase className="w-3.5 h-3.5" />
-                          Hands-on Experience
-                        </span>
-                      )}
-                    </div>
+        {/* SINGLE HORIZONTAL SCROLLING ROW */}
+        <div className="relative max-w-6xl mx-auto mb-16">
+          <div
+            className="flex flex-nowrap gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory py-4 px-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            onWheel={(e) => {
+              if (e.deltaY !== 0) {
+                e.currentTarget.scrollLeft += e.deltaY;
+              }
+            }}
+          >
+            {certs.map((cert, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className="w-[340px] shrink-0 snap-start p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 group flex flex-col justify-between space-y-4 box-glow"
+              >
+                <div className="flex items-start justify-between">
+                  <div className={`p-3 rounded-lg shrink-0 transition-colors ${cert.type === "internship" ? "bg-accent/10 group-hover:bg-accent/20" : "bg-primary/10 group-hover:bg-primary/20"}`}>
+                    {cert.type === "internship"
+                      ? <Briefcase className="w-6 h-6 text-accent" />
+                      : <ShieldCheck className="w-6 h-6 text-primary" />
+                    }
                   </div>
+                  <span className={`text-xs font-mono font-semibold px-2.5 py-1 rounded-full ${cert.type === "internship" ? "bg-accent/10 text-accent border border-accent/20" : "bg-primary/10 text-primary border border-primary/20"}`}>
+                    {cert.abbr}
+                  </span>
                 </div>
-              ))}
-            </div>
-          </div>
 
-          {/* NAVIGATION ARROWS */}
-          <button
-            onClick={() => emblaApi?.scrollPrev()}
-            className="absolute left-0 top-1/2 -translate-y-1/2 p-3 rounded-full border border-border bg-card/90 hover:bg-primary/10 hover:border-primary/50 text-foreground transition-all duration-200 z-10 shadow-lg backdrop-blur-sm"
-            aria-label="Previous Slide"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button
-            onClick={() => emblaApi?.scrollNext()}
-            className="absolute right-0 top-1/2 -translate-y-1/2 p-3 rounded-full border border-border bg-card/90 hover:bg-primary/10 hover:border-primary/50 text-foreground transition-all duration-200 z-10 shadow-lg backdrop-blur-sm"
-            aria-label="Next Slide"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
+                <div className="flex-grow space-y-2">
+                  <h3 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors">
+                    {cert.name}
+                  </h3>
+                  <p className={`text-xs font-medium ${cert.type === "internship" ? "text-accent" : "text-primary"}`}>
+                    {cert.org} · {cert.year}
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed pt-1">
+                    {cert.description}
+                  </p>
+                </div>
 
-          {/* PAGINATION DOTS */}
-          <div className="flex justify-center items-center space-x-2 mt-8">
-            {scrollSnaps.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => emblaApi?.scrollTo(index)}
-                className={`h-2.5 rounded-full transition-all duration-300 ${selectedIndex === index ? "w-8 bg-primary" : "w-2.5 bg-muted hover:bg-primary/40"}`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
+                <div className="pt-2">
+                  {cert.pdf ? (
+                    <a
+                      href={cert.pdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs text-primary border border-primary/30 rounded-full px-3 py-1.5 hover:bg-primary/10 transition-colors font-medium"
+                    >
+                      <FileText className="w-3.5 h-3.5" />
+                      View Certificate
+                      <ExternalLink className="w-3 h-3 ml-0.5" />
+                    </a>
+                  ) : (
+                    <span className="inline-flex items-center gap-1.5 text-xs text-accent border border-accent/30 rounded-full px-3 py-1.5 font-medium">
+                      <Briefcase className="w-3.5 h-3.5" />
+                      Hands-on Experience
+                    </span>
+                  )}
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
