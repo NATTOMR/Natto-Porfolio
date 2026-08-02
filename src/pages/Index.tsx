@@ -605,38 +605,48 @@ const Certifications = () => {
                 key={i}
                 className="w-[340px] shrink-0 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 group flex flex-col justify-between overflow-hidden box-glow hover:scale-[1.02]"
               >
-                {/* PREVIEW IMAGE AT TOP */}
-                {cert.image ? (
-                  <a
-                    href={cert.pdf}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block relative aspect-[16/10] overflow-hidden bg-muted/30 group/img cursor-pointer"
-                    title={`Open ${cert.name} PDF`}
-                  >
-                    <img
-                      src={cert.image}
-                      alt={`${cert.name} Preview`}
-                      loading="lazy"
-                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover/img:scale-105 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover/img:opacity-100 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <span className="px-3 py-1.5 rounded-full bg-background/90 text-primary text-xs font-semibold flex items-center gap-1.5 shadow-md">
-                        <ExternalLink className="w-3.5 h-3.5" /> View PDF
+                {/* CERTIFICATE THUMBNAIL — styled preview, click to open PDF */}
+                <a
+                  href={cert.pdf || undefined}
+                  target={cert.pdf ? "_blank" : undefined}
+                  rel="noopener noreferrer"
+                  className={`block relative aspect-[16/10] overflow-hidden border-b border-border group/thumb ${cert.pdf ? "cursor-pointer" : "cursor-default"}`}
+                  style={{
+                    background: cert.type === "internship"
+                      ? "linear-gradient(135deg, hsl(var(--accent)/0.15) 0%, hsl(var(--accent)/0.05) 100%)"
+                      : "linear-gradient(135deg, hsl(var(--primary)/0.18) 0%, hsl(var(--primary)/0.05) 100%)"
+                  }}
+                >
+                  {/* Decorative grid */}
+                  <div className="absolute inset-0 opacity-10" style={{backgroundImage: "radial-gradient(circle, currentColor 1px, transparent 1px)", backgroundSize: "20px 20px"}} />
+
+                  {/* Shield / Briefcase icon centered */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-6">
+                    <div className={`p-4 rounded-2xl ${cert.type === "internship" ? "bg-accent/20 text-accent" : "bg-primary/20 text-primary"}`}>
+                      {cert.type === "internship"
+                        ? <Briefcase className="w-10 h-10" />
+                        : <Award className="w-10 h-10" />
+                      }
+                    </div>
+                    <p className="text-xs font-semibold text-foreground/70 text-center leading-tight max-w-[200px]">
+                      {cert.org}
+                    </p>
+                  </div>
+
+                  {/* Hover overlay */}
+                  {cert.pdf && (
+                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover/thumb:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <span className="px-4 py-2 rounded-full bg-background/90 text-primary text-xs font-semibold flex items-center gap-1.5 shadow-lg">
+                        <FileText className="w-3.5 h-3.5" /> Open PDF
                       </span>
                     </div>
-                    <span className={`absolute top-3 right-3 text-xs font-mono font-semibold px-2.5 py-1 rounded-full backdrop-blur-md ${cert.type === "internship" ? "bg-accent/20 text-accent border border-accent/30" : "bg-background/80 text-primary border border-primary/30"}`}>
-                      {cert.abbr}
-                    </span>
-                  </a>
-                ) : (
-                  <div className="relative aspect-[16/10] bg-accent/10 flex items-center justify-center p-6 border-b border-border">
-                    <Briefcase className="w-12 h-12 text-accent" />
-                    <span className="absolute top-3 right-3 text-xs font-mono font-semibold px-2.5 py-1 rounded-full bg-accent/20 text-accent border border-accent/30">
-                      {cert.abbr}
-                    </span>
-                  </div>
-                )}
+                  )}
+
+                  {/* Badge */}
+                  <span className={`absolute top-3 right-3 text-xs font-mono font-semibold px-2.5 py-1 rounded-full backdrop-blur-sm ${cert.type === "internship" ? "bg-accent/20 text-accent border border-accent/30" : "bg-background/80 text-primary border border-primary/30"}`}>
+                    {cert.abbr}
+                  </span>
+                </a>
 
                 {/* CARD CONTENT */}
                 <div className="p-6 flex flex-col flex-grow justify-between space-y-4">
