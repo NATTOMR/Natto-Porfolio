@@ -2,7 +2,7 @@ import thmLogo from "@/assets/tryhackme.png";
 import htbLogo from "@/assets/htb.png";
 import ldLogo from "@/assets/letsdefence.png";
 import { Button } from "@/components/ui/button";
-import { Shield, ExternalLink, Mail, Github, Linkedin, Terminal, Menu, X, ShieldCheck, Eye, Database, Activity, Monitor, FileSearch, AlertTriangle, Search, MessageSquare, Cpu, Server, Briefcase, ChevronLeft, ChevronRight, Award, FileText } from "lucide-react";
+import { Shield, ExternalLink, Mail, Github, Linkedin, Terminal, Menu, X, ShieldCheck, Eye, Database, Activity, Monitor, FileSearch, AlertTriangle, Search, MessageSquare, Cpu, Server, Briefcase, ChevronLeft, ChevronRight, Award, FileText, Trophy, Globe, Users, Heart, Timer, MapPin, Star, ZoomIn, ChevronDown } from "lucide-react";
 import { useState, useEffect, ReactNode } from "react";
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-image.jpg";
@@ -58,6 +58,7 @@ const Nav = () => {
     { name: "Services", href: "#services" },
     { name: "Certifications", href: "#certifications" },
     { name: "Projects", href: "#projects" },
+    { name: "Leadership", href: "#leadership" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -728,6 +729,298 @@ const Certifications = () => {
   );
 };
 
+const Leadership = () => {
+  const baseUrl = import.meta.env.BASE_URL;
+  const [lightbox, setLightbox] = useState<string | null>(null);
+  const [activeCard, setActiveCard] = useState<number | null>(null);
+
+  const stats = [
+    { icon: <Timer className="w-6 h-6" />, value: "2+", label: "Marathons Completed" },
+    { icon: <Trophy className="w-6 h-6" />, value: "5+", label: "Sports Achievements" },
+    { icon: <Globe className="w-6 h-6" />, value: "10+", label: "University Events" },
+    { icon: <Users className="w-6 h-6" />, value: "20+", label: "Team Activities" },
+    { icon: <Star className="w-6 h-6" />, value: "21.1", label: "KM Personal Best" },
+  ];
+
+  const activities = [
+    {
+      title: "Half Marathon Runner",
+      badge: "Sports",
+      badgeColor: "bg-blue-500/20 text-blue-400 border-blue-500/30",
+      icon: <Timer className="w-6 h-6 text-primary" />,
+      description: "Successfully completed multiple long-distance marathon events demonstrating discipline, endurance, consistency, and mental resilience — proving that cybersecurity resilience starts with physical and mental training.",
+      highlights: ["🏃 Half Marathon Finisher", "🏅 Vizag Navy Marathon 2025", "🏅 Sri Krishna Marathon 2025", "💪 Fitness & Discipline", "⭐ Personal Best: 21.1 KM"],
+      images: [`${baseUrl}Activities/marathon-finish.jpg`, `${baseUrl}Activities/marathon-running.jpg`],
+      glowColor: "hover:border-blue-500/60 hover:shadow-blue-500/20",
+    },
+    {
+      title: "Badminton Champion",
+      badge: "Champion",
+      badgeColor: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30",
+      icon: <Trophy className="w-6 h-6 text-yellow-400" />,
+      description: "Represented my department in badminton competitions and became Department Day Champion through dedication, teamwork, and consistent practice.",
+      highlights: ["🥇 Department Day Champion", "🏸 Competitive Badminton Player", "🏆 Multiple Tournament Participation", "🤝 Team Spirit"],
+      images: [`${baseUrl}Activities/badminton-action.jpg`, `${baseUrl}Activities/badminton-award.jpg`],
+      glowColor: "hover:border-yellow-500/60 hover:shadow-yellow-500/20",
+    },
+    {
+      title: "International Student Leadership",
+      badge: "Leadership",
+      badgeColor: "bg-purple-500/20 text-purple-400 border-purple-500/30",
+      icon: <Globe className="w-6 h-6 text-purple-400" />,
+      description: "Actively represented international students while participating in cultural exchange programs, university events, and community activities that strengthened leadership and communication skills.",
+      highlights: ["🌍 International Student", "🤝 Cultural Exchange", "🎓 University Representative", "🇧🇩 Proudly Represented Bangladesh"],
+      images: [`${baseUrl}Activities/international-award.jpg`, `${baseUrl}Activities/international-group.jpg`],
+      glowColor: "hover:border-purple-500/60 hover:shadow-purple-500/20",
+    },
+    {
+      title: "University Sports & Team Activities",
+      badge: "Teamwork",
+      badgeColor: "bg-green-500/20 text-green-400 border-green-500/30",
+      icon: <Users className="w-6 h-6 text-green-400" />,
+      description: "Regularly participated in university sports events including football and badminton, promoting teamwork, leadership, communication, and healthy competition.",
+      highlights: ["⚽ Football Team", "🏸 Badminton Team", "👥 Team Collaboration", "💪 Physical Fitness"],
+      images: [`${baseUrl}Activities/football-team.jpg`, `${baseUrl}Activities/team-sports.jpg`],
+      glowColor: "hover:border-green-500/60 hover:shadow-green-500/20",
+    },
+    {
+      title: "Awards & Recognition",
+      badge: "Achievement",
+      badgeColor: "bg-orange-500/20 text-orange-400 border-orange-500/30",
+      icon: <Award className="w-6 h-6 text-orange-400" />,
+      description: "Received multiple awards and recognitions for academic, cultural, sports, and leadership activities throughout my university journey.",
+      highlights: ["🏆 Championship Winner", "🥇 Sports Awards", "🎖 University Recognition", "🌟 Leadership Recognition"],
+      images: [`${baseUrl}Activities/award-ceremony.jpg`, `${baseUrl}Activities/trophy-photo.jpg`],
+      glowColor: "hover:border-orange-500/60 hover:shadow-orange-500/20",
+    },
+    {
+      title: "Community & Cultural Engagement",
+      badge: "Community",
+      badgeColor: "bg-pink-500/20 text-pink-400 border-pink-500/30",
+      icon: <Heart className="w-6 h-6 text-pink-400" />,
+      description: "Participated in cultural celebrations, university events, and community engagement programs, strengthening communication, adaptability, and leadership.",
+      highlights: ["🎭 Cultural Events", "🤝 Community Participation", "🎉 University Celebrations", "🌏 International Networking"],
+      images: [`${baseUrl}Activities/connect-event.jpg`, `${baseUrl}Activities/community-event.jpg`],
+      glowColor: "hover:border-pink-500/60 hover:shadow-pink-500/20",
+    },
+  ];
+
+  const timeline = [
+    { year: "2023", event: "Started University Sports Participation", icon: <Star className="w-4 h-4" /> },
+    { year: "2024", event: "Department Day Badminton Champion", icon: <Trophy className="w-4 h-4" /> },
+    { year: "2024", event: "International Student Cultural Activities", icon: <Globe className="w-4 h-4" /> },
+    { year: "2025", event: "Vizag Navy Half Marathon — 21.1 KM", icon: <Timer className="w-4 h-4" /> },
+    { year: "2025", event: "Sri Krishna Marathon Completion", icon: <MapPin className="w-4 h-4" /> },
+  ];
+
+  const galleryImages = [
+    { src: `${baseUrl}Activities/marathon-finish.jpg`, caption: "Vizag Navy Marathon Finish Line" },
+    { src: `${baseUrl}Activities/marathon-running.jpg`, caption: "Running at Vizag Navy Marathon" },
+    { src: `${baseUrl}Activities/marathon-award.jpg`, caption: "Sri Krishna Marathon Medal Ceremony" },
+    { src: `${baseUrl}Activities/trophy-photo.jpg`, caption: "Football Winners Trophy" },
+  ];
+
+  return (
+    <section id="leadership" className="py-24 bg-gradient-to-b from-background via-card/30 to-background overflow-hidden">
+      {/* Lightbox */}
+      {lightbox && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-md p-4"
+          onClick={() => setLightbox(null)}
+        >
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            className="relative max-w-4xl w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img src={lightbox} alt="Activity" className="w-full h-auto rounded-2xl shadow-2xl border border-primary/30" />
+            <button
+              onClick={() => setLightbox(null)}
+              className="absolute -top-4 -right-4 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg hover:bg-primary/80 transition-colors shadow-lg"
+            >
+              ×
+            </button>
+          </motion.div>
+        </motion.div>
+      )}
+
+      <div className="container mx-auto px-4 md:px-6">
+        {/* Header */}
+        <ScrollReveal className="text-center mb-16">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-mono font-semibold uppercase tracking-widest mb-6">
+            <Star className="w-3.5 h-3.5" /> Beyond Cybersecurity
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 font-mono tracking-tight">
+            Leadership &{" "}
+            <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)))" }}>
+              Extra Activities
+            </span>
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-base leading-relaxed mb-4">
+            Beyond Cybersecurity — Leadership, Sports, International Representation, Teamwork & Personal Growth
+          </p>
+          <p className="text-muted-foreground/80 max-w-3xl mx-auto text-sm leading-relaxed italic border-l-2 border-primary/40 pl-4 text-left mx-auto">
+            "I believe that cybersecurity professionals should possess not only technical expertise but also discipline, resilience, teamwork, leadership, and the ability to perform under pressure. These experiences have helped shape my professional mindset."
+          </p>
+        </ScrollReveal>
+
+        {/* Stats */}
+        <StaggerContainer className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-20">
+          {stats.map((stat, i) => (
+            <motion.div
+              key={i}
+              variants={staggerItem}
+              className="flex flex-col items-center gap-2 p-5 rounded-2xl border border-border bg-card/60 backdrop-blur-sm hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 group"
+            >
+              <div className="p-2.5 rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
+                {stat.icon}
+              </div>
+              <span className="text-2xl font-bold font-mono text-foreground">{stat.value}</span>
+              <span className="text-xs text-muted-foreground text-center leading-tight">{stat.label}</span>
+            </motion.div>
+          ))}
+        </StaggerContainer>
+
+        {/* Activity Cards */}
+        <ScrollReveal className="mb-4">
+          <h3 className="text-2xl font-bold font-mono text-center mb-10">My Activities</h3>
+        </ScrollReveal>
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
+          {activities.map((act, i) => (
+            <motion.div
+              key={i}
+              variants={staggerItem}
+              whileHover={{ y: -6 }}
+              className={`relative rounded-2xl border border-border bg-card/70 backdrop-blur-md overflow-hidden transition-all duration-300 shadow-lg hover:shadow-2xl ${act.glowColor} group cursor-pointer flex flex-col`}
+              onMouseEnter={() => setActiveCard(i)}
+              onMouseLeave={() => setActiveCard(null)}
+            >
+              {/* Image */}
+              <div className="relative aspect-[16/9] overflow-hidden bg-muted/30">
+                {act.images.map((img, imgIdx) => (
+                  <img
+                    key={imgIdx}
+                    src={img}
+                    alt={act.title}
+                    loading="lazy"
+                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${imgIdx === 0 ? (activeCard === i ? "opacity-0" : "opacity-100") : (activeCard === i ? "opacity-100" : "opacity-0")} scale-105 group-hover:scale-110`}
+                    onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+                  />
+                ))}
+                {/* Gradient fallback background */}
+                <div
+                  className="absolute inset-0 flex items-center justify-center"
+                  style={{ background: "linear-gradient(135deg, hsl(var(--primary)/0.12) 0%, hsl(var(--primary)/0.04) 100%)" }}
+                >
+                  <div className="p-6 rounded-2xl bg-primary/10">{act.icon}</div>
+                </div>
+                {/* Hover overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
+                <button
+                  className="absolute top-3 right-3 p-2 rounded-full bg-background/80 backdrop-blur-sm text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  onClick={(e) => { e.stopPropagation(); if (act.images[0]) setLightbox(act.images[activeCard === i ? 1 : 0] || act.images[0]); }}
+                >
+                  <ZoomIn className="w-4 h-4" />
+                </button>
+                {/* Badge */}
+                <span className={`absolute top-3 left-3 text-xs font-semibold px-3 py-1 rounded-full border backdrop-blur-sm ${act.badgeColor}`}>
+                  {act.badge}
+                </span>
+              </div>
+
+              {/* Content */}
+              <div className="p-5 flex flex-col flex-grow gap-3">
+                <div className="flex items-center gap-2">
+                  {act.icon}
+                  <h3 className="font-bold text-base text-foreground group-hover:text-primary transition-colors leading-tight">{act.title}</h3>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">{act.description}</p>
+                <ul className="grid grid-cols-1 gap-1 mt-auto pt-2">
+                  {act.highlights.map((h, hi) => (
+                    <li key={hi} className="text-xs text-foreground/75 font-medium">{h}</li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          ))}
+        </StaggerContainer>
+
+        {/* Photo Gallery */}
+        <ScrollReveal className="mb-10 text-center">
+          <h3 className="text-2xl font-bold font-mono mb-2">Journey Beyond Cybersecurity</h3>
+          <p className="text-muted-foreground text-sm">Real moments from marathons, tournaments & university life</p>
+        </ScrollReveal>
+        <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-24">
+          {galleryImages.map((img, i) => (
+            <motion.div
+              key={i}
+              variants={staggerItem}
+              className={`relative rounded-xl overflow-hidden border border-border group cursor-pointer ${i === 1 ? "md:row-span-2" : ""}`}
+              style={{ aspectRatio: i === 1 ? "2/3" : "4/3" }}
+              onClick={() => setLightbox(img.src)}
+            >
+              <img
+                src={img.src}
+                alt={img.caption}
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                onError={(e) => { (e.currentTarget as HTMLImageElement).parentElement!.style.background = "hsl(var(--primary)/0.1)"; (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-3">
+                <div className="flex justify-end">
+                  <div className="p-1.5 rounded-full bg-white/20 backdrop-blur-sm">
+                    <ZoomIn className="w-3.5 h-3.5 text-white" />
+                  </div>
+                </div>
+                <div
+                  className="px-3 py-1.5 rounded-lg text-white text-xs font-semibold"
+                  style={{ background: "hsl(var(--primary)/0.6)", backdropFilter: "blur(4px)" }}
+                >
+                  {img.caption}
+                </div>
+              </div>
+              {/* Glow border on hover */}
+              <div className="absolute inset-0 rounded-xl border-2 border-primary/0 group-hover:border-primary/50 transition-all duration-300 pointer-events-none" />
+            </motion.div>
+          ))}
+        </StaggerContainer>
+
+        {/* Timeline */}
+        <ScrollReveal className="mb-10 text-center">
+          <h3 className="text-2xl font-bold font-mono mb-2">My Journey</h3>
+          <p className="text-muted-foreground text-sm">Key milestones beyond academics</p>
+        </ScrollReveal>
+        <div className="relative max-w-2xl mx-auto">
+          {/* Center line */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/0 via-primary/50 to-primary/0 -translate-x-1/2" />
+          <div className="flex flex-col gap-8">
+            {timeline.map((item, i) => (
+              <ScrollReveal key={i} delay={i * 0.1}>
+                <div className={`flex items-center gap-4 ${i % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}>
+                  <div className={`flex-1 ${i % 2 === 0 ? "text-right" : "text-left"}`}>
+                    <div className={`inline-block p-4 rounded-xl border border-border bg-card/70 backdrop-blur-sm hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 shadow-md ${i % 2 === 0 ? "text-right" : "text-left"}`}>
+                      <span className="text-xs font-mono font-bold text-primary block mb-1">{item.year}</span>
+                      <span className="text-sm font-medium text-foreground">{item.event}</span>
+                    </div>
+                  </div>
+                  <div className="relative z-10 flex-shrink-0 w-10 h-10 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center text-primary shadow-lg shadow-primary/20">
+                    {item.icon}
+                  </div>
+                  <div className="flex-1" />
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -737,6 +1030,7 @@ const Index = () => {
       <Services />
       <Certifications />
       <Projects />
+      <Leadership />
       <Contact />
       
       <motion.footer
