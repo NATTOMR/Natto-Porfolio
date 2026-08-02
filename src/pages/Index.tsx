@@ -760,7 +760,7 @@ const Leadership = () => {
       icon: <Trophy className="w-6 h-6 text-yellow-400" />,
       description: "Represented my department in badminton competitions and became Department Day Champion through dedication, teamwork, and consistent practice.",
       highlights: ["🥇 Department Day Champion", "🏸 Competitive Badminton Player", "🏆 Multiple Tournament Participation", "🤝 Team Spirit"],
-      images: [`${baseUrl}activities/trophy-photo.jpg`, `${baseUrl}activities/marathon-day.jpg`],
+      images: [`${baseUrl}activities/badminton-action.jpg`, `${baseUrl}activities/trophy-photo.jpg`],
       glowColor: "hover:border-yellow-500/60 hover:shadow-yellow-500/20",
     },
     {
@@ -770,7 +770,7 @@ const Leadership = () => {
       icon: <Globe className="w-6 h-6 text-purple-400" />,
       description: "Actively represented international students while participating in cultural exchange programs, university events, and community activities that strengthened leadership and communication skills.",
       highlights: ["🌍 International Student", "🤝 Cultural Exchange", "🎓 University Representative", "🇧🇩 Proudly Represented Bangladesh"],
-      images: [`${baseUrl}activities/marathon-award.jpg`, `${baseUrl}activities/marathon-finish.jpg`],
+      images: [`${baseUrl}activities/international-leadership.jpg`, `${baseUrl}activities/cultural-event-award.jpg`],
       glowColor: "hover:border-purple-500/60 hover:shadow-purple-500/20",
     },
     {
@@ -780,7 +780,7 @@ const Leadership = () => {
       icon: <Users className="w-6 h-6 text-green-400" />,
       description: "Regularly participated in university sports events including football and badminton, promoting teamwork, leadership, communication, and healthy competition.",
       highlights: ["⚽ Football Team", "🏸 Badminton Team", "👥 Team Collaboration", "💪 Physical Fitness"],
-      images: [`${baseUrl}activities/marathon-day.jpg`, `${baseUrl}activities/trophy-photo.jpg`],
+      images: [`${baseUrl}activities/football-team-ground.jpg`, `${baseUrl}activities/marathon-day.jpg`],
       glowColor: "hover:border-green-500/60 hover:shadow-green-500/20",
     },
     {
@@ -790,7 +790,7 @@ const Leadership = () => {
       icon: <Award className="w-6 h-6 text-orange-400" />,
       description: "Received multiple awards and recognitions for academic, cultural, sports, and leadership activities throughout my university journey.",
       highlights: ["🏆 Championship Winner", "🥇 Sports Awards", "🎖 University Recognition", "🌟 Leadership Recognition"],
-      images: [`${baseUrl}activities/marathon-finish.jpg`, `${baseUrl}activities/trophy-photo.jpg`],
+      images: [`${baseUrl}activities/connect2k24-awards.jpg`, `${baseUrl}activities/trophy-photo.jpg`],
       glowColor: "hover:border-orange-500/60 hover:shadow-orange-500/20",
     },
     {
@@ -800,7 +800,7 @@ const Leadership = () => {
       icon: <Heart className="w-6 h-6 text-pink-400" />,
       description: "Participated in cultural celebrations, university events, and community engagement programs, strengthening communication, adaptability, and leadership.",
       highlights: ["🎭 Cultural Events", "🤝 Community Participation", "🎉 University Celebrations", "🌏 International Networking"],
-      images: [`${baseUrl}activities/marathon-award.jpg`, `${baseUrl}activities/marathon-running.jpg`],
+      images: [`${baseUrl}activities/cultural-event-award.jpg`, `${baseUrl}activities/international-leadership.jpg`],
       glowColor: "hover:border-pink-500/60 hover:shadow-pink-500/20",
     },
   ];
@@ -814,11 +814,12 @@ const Leadership = () => {
   ];
 
   const galleryImages = [
-    { src: `${baseUrl}activities/marathon-finish.jpg`, caption: "Vizag Navy Marathon Finish Line" },
-    { src: `${baseUrl}activities/marathon-running.jpg`, caption: "Night Running at Vizag Navy Marathon" },
-    { src: `${baseUrl}activities/marathon-day.jpg`, caption: "Day Action Shot — Vizag Navy Marathon" },
-    { src: `${baseUrl}activities/marathon-award.jpg`, caption: "Sri Krishna Marathon Medal Ceremony" },
-    { src: `${baseUrl}activities/trophy-photo.jpg`, caption: "Football Winners Trophy" },
+    { src: `${baseUrl}activities/marathon-running.jpg`, caption: "Night Running — Vizag Navy Marathon" },
+    { src: `${baseUrl}activities/badminton-action.jpg`, caption: "Badminton Championship Match" },
+    { src: `${baseUrl}activities/international-leadership.jpg`, caption: "ICCR International Student Medal Ceremony" },
+    { src: `${baseUrl}activities/football-team-ground.jpg`, caption: "University Football Team" },
+    { src: `${baseUrl}activities/connect2k24-awards.jpg`, caption: "CONNECT 2K24 Trophy Presentation" },
+    { src: `${baseUrl}activities/cultural-event-award.jpg`, caption: "Cultural Event Honor in Traditional Attire" },
   ];
 
   return (
@@ -955,7 +956,7 @@ const Leadership = () => {
           <h3 className="text-2xl font-bold font-mono mb-2">Journey Beyond Cybersecurity</h3>
           <p className="text-muted-foreground text-sm">Real moments from marathons, tournaments & university life</p>
         </ScrollReveal>
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-24">
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-24">
           {galleryImages.map((img, i) => (
             <motion.div
               key={i}
