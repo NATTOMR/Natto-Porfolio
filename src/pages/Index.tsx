@@ -750,7 +750,7 @@ const Leadership = () => {
       icon: <Timer className="w-6 h-6 text-primary" />,
       description: "Successfully completed multiple long-distance marathon events demonstrating discipline, endurance, consistency, and mental resilience — proving that cybersecurity resilience starts with physical and mental training.",
       highlights: ["🏃 Half Marathon Finisher", "🏅 Vizag Navy Marathon 2025", "🏅 Sri Krishna Marathon 2025", "💪 Fitness & Discipline", "⭐ Personal Best: 21.1 KM"],
-      images: [`${baseUrl}activities/marathon-finish.jpg`, `${baseUrl}activities/marathon-running.jpg`],
+      images: [`${baseUrl}activities/marathon-running.jpg`, `${baseUrl}activities/marathon-finish.jpg`],
       glowColor: "hover:border-blue-500/60 hover:shadow-blue-500/20",
     },
     {
@@ -760,7 +760,7 @@ const Leadership = () => {
       icon: <Trophy className="w-6 h-6 text-yellow-400" />,
       description: "Represented my department in badminton competitions and became Department Day Champion through dedication, teamwork, and consistent practice.",
       highlights: ["🥇 Department Day Champion", "🏸 Competitive Badminton Player", "🏆 Multiple Tournament Participation", "🤝 Team Spirit"],
-      images: [`${baseUrl}activities/marathon-day.jpg`, `${baseUrl}activities/badminton-award.jpg`],
+      images: [`${baseUrl}activities/trophy-photo.jpg`, `${baseUrl}activities/marathon-day.jpg`],
       glowColor: "hover:border-yellow-500/60 hover:shadow-yellow-500/20",
     },
     {
@@ -770,7 +770,7 @@ const Leadership = () => {
       icon: <Globe className="w-6 h-6 text-purple-400" />,
       description: "Actively represented international students while participating in cultural exchange programs, university events, and community activities that strengthened leadership and communication skills.",
       highlights: ["🌍 International Student", "🤝 Cultural Exchange", "🎓 University Representative", "🇧🇩 Proudly Represented Bangladesh"],
-      images: [`${baseUrl}activities/international-award.jpg`, `${baseUrl}activities/international-group.jpg`],
+      images: [`${baseUrl}activities/marathon-award.jpg`, `${baseUrl}activities/marathon-finish.jpg`],
       glowColor: "hover:border-purple-500/60 hover:shadow-purple-500/20",
     },
     {
@@ -780,7 +780,7 @@ const Leadership = () => {
       icon: <Users className="w-6 h-6 text-green-400" />,
       description: "Regularly participated in university sports events including football and badminton, promoting teamwork, leadership, communication, and healthy competition.",
       highlights: ["⚽ Football Team", "🏸 Badminton Team", "👥 Team Collaboration", "💪 Physical Fitness"],
-      images: [`${baseUrl}activities/football-team.jpg`, `${baseUrl}activities/team-sports.jpg`],
+      images: [`${baseUrl}activities/marathon-day.jpg`, `${baseUrl}activities/trophy-photo.jpg`],
       glowColor: "hover:border-green-500/60 hover:shadow-green-500/20",
     },
     {
@@ -790,7 +790,7 @@ const Leadership = () => {
       icon: <Award className="w-6 h-6 text-orange-400" />,
       description: "Received multiple awards and recognitions for academic, cultural, sports, and leadership activities throughout my university journey.",
       highlights: ["🏆 Championship Winner", "🥇 Sports Awards", "🎖 University Recognition", "🌟 Leadership Recognition"],
-      images: [`${baseUrl}activities/award-ceremony.jpg`, `${baseUrl}activities/trophy-photo.jpg`],
+      images: [`${baseUrl}activities/marathon-finish.jpg`, `${baseUrl}activities/trophy-photo.jpg`],
       glowColor: "hover:border-orange-500/60 hover:shadow-orange-500/20",
     },
     {
@@ -800,7 +800,7 @@ const Leadership = () => {
       icon: <Heart className="w-6 h-6 text-pink-400" />,
       description: "Participated in cultural celebrations, university events, and community engagement programs, strengthening communication, adaptability, and leadership.",
       highlights: ["🎭 Cultural Events", "🤝 Community Participation", "🎉 University Celebrations", "🌏 International Networking"],
-      images: [`${baseUrl}activities/connect-event.jpg`, `${baseUrl}activities/community-event.jpg`],
+      images: [`${baseUrl}activities/marathon-award.jpg`, `${baseUrl}activities/marathon-running.jpg`],
       glowColor: "hover:border-pink-500/60 hover:shadow-pink-500/20",
     },
   ];
